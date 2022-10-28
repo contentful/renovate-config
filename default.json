@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":preserveSemverRanges",
+    ":automergeRequireAllStatusChecks",
+    ":automergeAll",
+  ],
+  "npm": {
+    "enabled": false
+  },
+  "docker": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["cimg/node"],
+      "allowedVersions": "<= 18"
+    }
+  ]
+}
