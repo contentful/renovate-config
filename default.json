@@ -14,7 +14,7 @@
   },
   "packageRules": [
     {
-      "matchPackageNames": ["cimg/node"],
+      "matchPackageNames": ["cimg/node", "node"],
       "allowedVersions": "<= 18"
     }
   ]
