@@ -4,14 +4,18 @@
     "config:base",
     ":preserveSemverRanges",
     ":automergeRequireAllStatusChecks",
-    ":automergeAll",
+    ":automergeAll"
   ],
   "npm": {
-    "enabled": false
+    "enabled": false,
+    "encrypted": {
+      "npmToken": "wcFMA/xDdHCJBTolAQ/+PeM577+XOa4pVlnXHaZiBQxKsJ9VMHfmNEV7DhpcXBwxqpfFvWrLC2Ufg9oRguqvCeNhLbb7OuBWd1R1tiiN6Gmrhw2ZpEu9H6HEwRbqDkCWRgF2wKmt34pp/KnnmJdfECXVZxNbGjjzSW/IT4C/PcCKlkLwyjMyUroYUMDSNB7n6RCVB/Lkjdp/JZON1c2MQ/GYhGFBleNhQLct0KDAPLclVUvimjyFPzU7uJCbdmb+jobWpwMMlzYob0dZ9NJV2PY3J3kczI/Ogzuuccai12bw175FR7JnCRTctkG4ONE527S4wEKxfiDt7Zw5gkYzidpdw8NEbd2IBAKDigyrUckjZwr2CidNQx1goVvq5Y/Zfb3JoirwNCok2GnkS8t1LXHp35+8J4RD8c/Rpx81Wnaz+9YuUSDfvn1x01lZIpywhCAU4Ixuaxl7CV122vxKg/U8+OYmSUlzP8reNmCWVm1+0QJCr78mEXPtVQYwJYZ0neULzTQXVyUjcIHUz6SFv6onimkg48NbokdbR+TPi54fV3QRWJr/qUzibxp4Zd2uX6B24UZD1fmqQMnRFYwh+bojz7fy5wYQ/kdVvYLfJ4iZoc3YqsizJRL1Rd58+uUWpICroGGLRV70VAzC5IYkxsgGnL7kxSlF4rn2PitMAe4TkRDju4VWk9IXudRYZ/7SdQGtjQNBIkbr1ztchtJ4pcOwIwTsMmGRqnt/itGIF0i66YU2tpUskvbjXpiPpd/S7cjpMdt3i9RoSA6gkMb4uz6YNo72rLgWYXUeyqKbIHZZtGvE698EHxxVdee/Y2rQcTNoxjA7lcSeyPJ6Ga6KTYn+h3Jnww"
+    }
   },
   "docker": {
     "enabled": false
   },
+  "semanticCommits": "enabled",
   "packageRules": [
     {
       "matchPackageNames": ["cimg/node"],
