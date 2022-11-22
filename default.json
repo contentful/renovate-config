@@ -2,18 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    // buildin presets
     ":preserveSemverRanges",
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
-    // contentful presets
     "local>contentful/renovate-config:maxNode18"
-
-    // TIP: you can disable any preset by adding `"ignorePresets": [":presetName"]
   ],
   "npm": {
     "enabled": false,
-    // Whydah-gally readonly npm token encrypted with Renovate public key
     "encrypted": {
       "npmToken": "wcFMA/xDdHCJBTolAQ//VyRAJljxeaj94/oHoxyLeexdADIw5Ib7iUnL6f7yijlquySWPmKaN2uXSKUiG3gIWTj5cF0qyPPJB1bMw2UP4X/HM+m1yygCGR01zLCK/RQWMYsM7iJ6MBBZaebT1Z1vq+M5YOlE8mQV9FnwUX7hVUsIcdTclpcm6Kb2KPrpXNbw/a/cORmIh9EILMjY2yExy3gATU2IP/DYRxgTiq9zN/bDQd9gLyp9M+FAtTWm7X40h9F7St+mkEt1sfREMiQUWMKvq9rzGATGkYrnQRXpqB5XgOAfxNPdvv29D+50n6d3n43dsT/JAf0vsooOBPLmzHhVMpYpy3VekMaDApv83mqkztXtco60jUnyVr9OuMJYi4VH3T9G771crSP4B1R9B5h20sRXntWYDF393EscKAjjX3JNCWEUlIWt3stZ5Ma43zvxEVcAwFymx9RtUGoNaZQOH4afM2Q3bpwPjq44ypdtPxcdzEYtdm9hyM3y/wNCDAhfeY26NffwyRTIZvt2H6WdI3FAHXACKgwxi7eNJcpkbNg2HprIR0Kanppc1OJ6kwik75XpEJC0m/TFOZa4NDnfXkMznBx4im26nQGROra+I+Cm39KrBTPcZJa4+ClrFIZisa7krJ32Kz07G2LVNYK72hZa6AWeQgOYbPqfpHjsJAr9a71dniHtyvS2wU3SdQGsjYxcn0AuaUw0sB8F+00tOGwWvkUcb3arpqNQP0FmdMfF9rOYvCJS++/puK/dvaRcZJDVRmVtMV8qHekxuO7jUp1u/tGrTLLK9H998gPT+0NU87gVGjRTz6IojAV8EWnooFXeAr3B4xedz7R5DW3jw42tTA"
     }
@@ -29,6 +24,6 @@
       "matchManagers": ["npm"],
       "matchDepTypes": [ "engines" ],
       "dependencyDashboardApproval": true
-    },
+    }
   ]
 }
