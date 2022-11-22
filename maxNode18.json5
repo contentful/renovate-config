@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Keep Nodejs at 18",
+      "matchPackageNames": ["cimg/node", "node"],
+      "allowedVersions": "<= 18"
+    },
+  ]
+}
