@@ -1,0 +1,17 @@
+name: Renovate Config Validator
+
+on: pull_request
+
+jobs:
+  main:
+    name: Main
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Validate Renovate config
+        run: npx -p renovate --yes renovate-config-validator default.json5 maxNode18.json5 pinPostgres12.json5
