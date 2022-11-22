@@ -14,4 +14,4 @@ jobs:
         with:
           node-version: 18
       - name: Validate Renovate config
-        run: npx -p renovate --yes renovate-config-validator default.json maxNode18.json pinPostgres12.json
+        run: npx -p renovate --yes renovate-config-validator *.json
