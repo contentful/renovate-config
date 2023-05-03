@@ -1,0 +1,40 @@
+version: 2.1
+
+orbs:
+  cf-validations: contentful/cf-validations@2
+  vault: contentful/vault@1
+  tech-docs: contentful/tech-docs@1
+
+workflows:
+  build:
+    jobs:
+      - cf-validations/validation:
+          name: backstage-validation
+          disable-openapi-validation: true
+          context:
+            - docker-hub-auth
+            - vault
+          filters:
+            tags:
+              ignore: /.*/
+          catalog-info: catalog-info*.yaml
+          disable-backstage-validate-components: false
+          after-checkout:
+            - vault/get-secrets:
+                template-preset: backstage-validation
+      - tech-docs/publish-tech-docs:
+          entity: default/component/renovate-config
+          context:
+            - atools-aws
+          filters:
+            branches:
+              only: master
+      - tech-docs/preview-tech-docs:
+          context:
+            - vault
+          filters:
+            branches:
+              ignore: master
+          after-checkout:
+            - vault/get-secrets:
+                template-preset: backstage-preview
