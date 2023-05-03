@@ -21,7 +21,7 @@ workflows:
           disable-backstage-validate-components: false
           after-checkout:
             - vault/get-secrets:
-                template-preset: "backstage-validation"
+                template-preset: backstage-validation
       - tech-docs/publish-tech-docs:
           entity: default/component/renovate-config
           context:
