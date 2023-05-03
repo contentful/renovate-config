@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: renovate-config
+  description: |
+    Reusable configuration for Renovate Bot (automated dependency updates)
+  annotations:
+    circleci.com/project-slug: github/contentful/renovate-config
+    github.com/project-slug: contentful/renovate-config
+    backstage.io/techdocs-ref: url:s3://contentful-roadie-tech-docs/default/Component/renovate-config/
+    contentful.com/ci-alert-slack: alerts-atools-prod
+spec:
+  type: library
+  lifecycle: production
+  owner: group:team-atools
