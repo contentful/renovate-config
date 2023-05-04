@@ -8,7 +8,7 @@ You may be interested in adopting Renovate if you use any of the following:
 
 - [CircleCI](https://docs.renovatebot.com/modules/manager/circleci/): Renovate is capable of updating Docker images & Orbs in your CircleCI config
 - [Helm charts](https://docs.renovatebot.com/modules/manager/helmv3/): Renovate can update your Helm chart dependencies
-- Anything you can write a regex for
+- Anything you can write a regex for using the [`regex` manager](https://docs.renovatebot.com/modules/manager/regex/) - see [cf-vault/renovate.json](https://github.com/contentful/cf-vault/blob/main/renovate.json#L9-L23) for an example
 
 You can find a full list of [supported managers here in the Renovate docs](https://docs.renovatebot.com/modules/manager/).
 
