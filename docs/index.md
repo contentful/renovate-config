@@ -18,7 +18,7 @@ Another benefit of Renovate is that configuration is shareable/reusable, which m
 
 ## Setup
 
-If you want to get started with Renovate on your repository, you will need to request for the [GitHub App](https://github.com/organizations/contentful/settings/installations/28065986) to be installed on your repository. You can reach out to [#team-mechagodzilla](https://contentful.slack.com/archives/C04SAS5V38Q) if you need any help doing this.
+If you want to get started with Renovate on your repository, you will need to request for the [GitHub App](https://github.com/organizations/contentful/settings/installations/28065986) to be installed on your repository. You can reach out to [Team Mechagodzilla](https://contentful.roadie.so/catalog/default/group/team-mechagodzilla) if you need any help doing this.
 
 Once the app is installed on your repository, a PR will be created to create the configuration `renovate.json` file. You should merge this to complete the setup of Renovate.
 
