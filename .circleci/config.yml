@@ -28,13 +28,13 @@ workflows:
             - atools-aws
           filters:
             branches:
-              only: master
+              only: main
       - tech-docs/preview-tech-docs:
           context:
             - vault
           filters:
             branches:
-              ignore: master
+              ignore: main
           after-checkout:
             - vault/get-secrets:
                 template-preset: backstage-preview
