@@ -15,3 +15,11 @@ You can find a full list of [supported managers here in the Renovate docs](https
 We have also found the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) (enabled by default using this base configuration, [example here](https://github.com/contentful/cd-scaffolder/issues/2119)) a useful tool for getting an overview of the status of dependency updates.
 
 Another benefit of Renovate is that configuration is shareable/reusable, which means we can be more consistent in how we update dependencies without duplicating the same boilerplate configuration across many repos.
+
+## Setup
+
+If you want to get started with Renovate on your repository, you will need to request for the [GitHub App](https://github.com/organizations/contentful/settings/installations/28065986) to be installed on your repository. You can reach out to [#team-mechagodzilla](https://contentful.slack.com/archives/C04SAS5V38Q) if you need any help doing this.
+
+Once the app is installed on your repository, a PR will be created to create the configuration `renovate.json` file. You should merge this to complete the setup of Renovate.
+
+Once you have done this, you can configure any additional managers you may require specifically for your project.
