@@ -8,7 +8,7 @@ metadata:
     circleci.com/project-slug: github/contentful/renovate-config
     github.com/project-slug: contentful/renovate-config
     backstage.io/techdocs-ref: url:s3://contentful-roadie-tech-docs/default/Component/renovate-config/
-    contentful.com/ci-alert-slack: alerts-atools-prod
+    contentful.com/ci-alert-slack: alerts-mechagodzilla-prod
 spec:
   type: library
   lifecycle: production
