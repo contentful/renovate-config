@@ -9,6 +9,7 @@ metadata:
     github.com/project-slug: contentful/renovate-config
     backstage.io/techdocs-ref: url:s3://contentful-roadie-tech-docs/default/Component/renovate-config/
     contentful.com/ci-alert-slack: alerts-mechagodzilla-prod
+    contentful.com/ownership-level: "1"
 spec:
   type: library
   lifecycle: production
