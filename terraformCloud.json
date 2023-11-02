@@ -1,0 +1,11 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "hostRules": [
+    {
+      "matchHost": "https://app.terraform.io",
+      "encrypted": {
+        "token": "wcFMA/xDdHCJBTolAQ/9GcTMm/5EMwzB5ZAphEKtXkOpxSi9+SGgqgqLDZNJpl+V1UTeMxZSouhJExL6fzVz5GCoR4B2OmBBuHf9u+/3wVQjsPvf20zdTt6o1sGCoyoAAKlurqSAy4jypOptzkkv2Ue4xoO+KC5YxedilhVn0Bn8NbAXr1lXaSUjAuICgWsMkvNKvQyU9oEcXPmGp2uSjcCI/QUOjDJ9iEu/Y69rLMTffUGp4CM7UcexwCRHI6RJFb2nEtXR1WmhclWqfjpRJI5Z9WdsDCv2JmdydvD3+1z4aCVNcXzsKEdtrHTbYqsvXs53esh1EGOa7iR3pmueVoD6Kym/S9Vl2FTY7geBEbpTxWiyr5mDoC3j8SHX0xZzfvXZ0mDNZdEFx3cFbNWdlrhhR2jF47KI6Q/RwQAglvIHstDEsjWVdh27QzJ2s/cNmuC21/QuDUTdF1Vrpk1TuC6jxPe7R28H74FdHMlhMn3Dz/08fYlYECxkj7nYwPcb0eklBzpWpa17qn3zowj5U8gmMFSuYgRifmsQD021ZhYjwEgCY5ePziesRUfYZmwE1DZH0g1MrFclVPF0Hmval1qFPwhyij7DtQrwK9X/Vd90epZCjkBt6fbygAp3TjVkELXcqpipTiJY1+HQhofbrwQpRvjl4vQ7BbiN2d+cPUbCKRK/Ttg3nIFd6hA46UDSqwHZJA4dozoqdIIAKxc88c836C9KbjGVz1ckoOAwwRchK9XMQR9eC+bxsLT/ZxokgbrMKG95e+4bSvu5bgUYwPd9y8V9+btzUTDKwpU/dFzGOF+bZYkvuaE4NJ6UGiTUzrSFfU2pWwyuUe6xDG7UAPKOl4W977Qz5yRmnt2jGnhW6c2jTdYgN8RjT4aCe+2fI8oU7sVhmP8OP2czjvbiA7JNAH009wejrAaaFA"
+      }
+    }
+  ]
+}

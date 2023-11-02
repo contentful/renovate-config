@@ -5,7 +5,8 @@
     ":preserveSemverRanges",
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
-    "local>contentful/renovate-config:pinNodeLTS"
+    "local>contentful/renovate-config:pinNodeLTS",
+    "local>contentful/renovate-config:terraformCloud"
   ],
   "npm": {
     "enabled": false,
@@ -23,7 +24,7 @@
       "description": "NodeJs bumps need Approval",
       "matchPackageNames": ["node"],
       "matchManagers": ["npm"],
-      "matchDepTypes": [ "engines" ],
+      "matchDepTypes": ["engines"],
       "dependencyDashboardApproval": true
     }
   ]
