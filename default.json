@@ -10,9 +10,10 @@
     "local>contentful/renovate-config:githubPackages"
   ],
   "npm": {
+    "platform": "github",
     "enabled": false,
     "encrypted": {
-      "npmToken": "wcFMA/xDdHCJBTolAQ/+IvOFI9jPijw+BIMTAllGxXqQ+pjjlEkoc+ZgbLh44JxvwJlBdTCJLVHakPiULjDqOtH32vB/j1uxP2OEPbF8a/QdepLuLUbJqv22FWmqZ0dcSDbVyVOR6ZPueQNLSuMkQEcVMFK2H+P/HeYqL8EMUit9ukjz3pVdqJfqtKXOcaL6NY9XL6KfWCcLpM1wMtilo1wX7j6I33q8D4CLFki04+0C2T9Ha4of4tFHSkQXxahDzqLzcdVReoKyPb+bcQ5/VkTPtdtziT2i0L4Xk4MOFKonPc6qsePy+F5hLEjUh/PF5Nz7lGHgyzFXUdJ7i9AmMaZUVleE7QTR9ORD367ApGZU0J17boiN5E0qX/3yM3dE500bm9W60pOHHk0fu8bD+ZufwaVP96QAmlgq8U9B9OxEwvQ+7XjKYAHTqY7mkb4xnZGTQhA/7XUb8zc2g3UIVTr800K48cxiPAtMEYQdODTovi/T8wg9dPBsxTFz7F4IV/22865Yn924OqHzR4Z1h+CAqB0NvXs56Hgmmfo1Xsh24fegYT0PlzeznX0y7QyiBhABDvvVPpxQUuzkUw+ssffPQp6WKm+ujxo2nKSTgulaba2wkgR2eBPsBRsitlSWPteP7teWrw/CydW3KUdqvhQIBFTdF4AB/MEMrUKEnmur0LHKjIuNMv4wXeg1lQbSeQEoVeurAyRf2VIhQ9h0bewz/RHL1ysLGxUCbDGWXLYQtiMprnzS2cHTqhBHSq+Pp8npmiHC+OjiIXTeVhlMBssGpQJ1g0Sz8XhR14PuzPMdBq/37sh9yiv+jemejQ2KADjPRPD4LDklYyL6adCLeVDsVniB40Qlg9U"
+      "npmToken": "wcFMA/xDdHCJBTolAQ/+Mf0HddWUC5frLvtps1sQuwWeBqBhDrOxVF8WAxTAOb7in8i9eKDVMgk5EBcgnrvzygXA76CDPIs8HqpQQiDq0w7aD2K80p8iaWQ6pPhNlsBYd/GzWoAsZnEahybQAdq6/GFVbWRVchSWQfdUMHHuEzlD9VobJeHPGXtQCi+5ste+x1WZ5YYXit32ljrILYBJnv/UttJjKa5YsDMLMhpQPAElD07G76lhqDjDmduDGRABkN50f5duprxuEFKDxr46EzOWEOU9tafzX5T+Npv3V+aL/AewoN2oNDHp1EF5sME9ufPdGGY5KjMtxfxjTer0SHZE8Da+WZ1h8Z7D/xBpKq4T3jZfXdqh1+4kFSwvxYD53wDO2kgG9VahMqbzew0iArpbdj+xXJipiy8MckYabXCehZwraA8t1b8WVuS9VMIrofgiOK6EvK9xf9HFhpCXeLUByJ+GhK/eRwQ8MsDTbCoVcX88xF9kCrwD9N1cXth1tUPBI7mWqq2eG6+hJimpbvK/5OH1A8Jleu0fWG1MoaTFEUkCmKwXFcOcjqq/7TC4IZjohBRMksNVPoEuAddObcNrLLpuhxxX5sCOfnoyvcI7zbCHuNFIHJ+3Qa3qotDL1QnePDu333L4shPir0BvQKnaO5AKKzcZgPjFdqsG6e8+ZTDmbV7ghhXX8IvmKy/SeQEw/kKwVsaoUgSNfy/68zmMP+ZqAxZioakog9BN4GpGHaOxhoA9trgzRyuBqx37GEFpQnU2/DnLJJ4DW9pLqHJxPHOW2h4c4D7cBtiR2ZWK0y37yFJl21eaIJaOsUGH1NyYCaKCmkd1fSncrkYdoN/ZTdGktzkXoKo"
     },
     "rangeStrategy": "bump"
   },
@@ -23,9 +24,15 @@
   "packageRules": [
     {
       "description": "NodeJs bumps need Approval",
-      "matchPackageNames": ["node"],
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["engines"],
+      "matchPackageNames": [
+        "node"
+      ],
+      "matchManagers": [
+        "npm"
+      ],
+      "matchDepTypes": [
+        "engines"
+      ],
       "dependencyDashboardApproval": true
     }
   ]
