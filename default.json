@@ -10,6 +10,7 @@
     "local>contentful/renovate-config:githubPackages"
   ],
   "npm": {
+    "platform": "github",
     "enabled": false,
     "rangeStrategy": "bump"
   },
