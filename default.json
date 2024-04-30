@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
+    "config:recommended",
     ":preserveSemverRanges",
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
@@ -16,11 +16,14 @@
     },
     "rangeStrategy": "bump"
   },
-  "docker": {
-    "enabled": false
-  },
+
   "semanticCommits": "enabled",
   "packageRules": [
+    {
+      "description": "Disable Docker by default",
+      "matchCategories": ["docker"],
+      "enabled": false
+    },
     {
       "description": "NodeJs bumps need Approval",
       "matchPackageNames": ["node"],
