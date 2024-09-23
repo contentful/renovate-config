@@ -10,6 +10,7 @@ metadata:
     backstage.io/techdocs-ref: url:s3://contentful-roadie-tech-docs/default/Component/renovate-config/
     contentful.com/ci-alert-slack: alerts-mechagodzilla-prod
     contentful.com/ownership-level: "1"
+    contentful.com/service-tier: "4"
 spec:
   type: library
   lifecycle: production
