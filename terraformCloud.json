@@ -3,9 +3,7 @@
   "hostRules": [
     {
       "matchHost": "https://app.terraform.io",
-      "encrypted": {
-        "token": "wcFMA/xDdHCJBTolAQ//arHEBOELLtQ98oaJBRTaABrGHp2eN8nhOQMxKkEgJFPTb5aPwTCmHO+RdUc0BACVrZ01Ozm6wWmRAARThZmL0l5WkIhbjDbRNJyFIyMKW9ph8og1RytiQB2hnM2zkbe0VUS0dr5NJVICeANQGPZXHAmSXZ3Z4wr7Or+SvLq9gUONyvBvByOP0lrglWq6KfKBtiIJWojwgt3pznWjF6c3ZsMFUiQooZYJAC9DY6I6z4YbhB8OtULLWTOmUm0AlnZr6ldxYMZhTRDzoSGFkjnWrPFFghxcOiHX1Yf2yA1+zL3vUW9eZFN3hRtKr+QXR9r9gn9jH9l051hvl02ibB9YBdF771dLGoZBNf4MKoNWc5lU0heoiBB+7MjxkPtnB+nedAwk6RzCW8Ji5nq7a1cu/0zHCX77I9ScDPdEZVl55PmrJ+nOBZdd6OtkfUFIEu8t2QnUC054Sb+Yxrj6m2sEpbgTU/azjnPzTzAi6o6XZoEw+vyGm52BfLWZaQL4lE09pUhONflTmYepaMQyMweuVoO1+B+qWTeErGLy3PJGoSA2Xff5lrcT0/w+7q2Otk7oq0TlPSIfGdqELPD0VzmXnAqcq6KD2EOCFezzqtaN8LiQhDxwaOAlS3SsL6/T/uhkmWrKBC8VjuEu/1dK2dyEFN6Mfe/rQHk4Ot2JB4dwSOXSqwGknH4Q2yVCFPZuopTaggGPklWwLhqt80u13CGdv2Yn+n35eVAIlCzACY4TWXJ+7KfAjGr6NY6xHHigeqFFYrVOxDBhD4BU7gwmRWU/J7DCgfRGKF7uvQfcXYHR/jusHngoYGf5Yarotj2Kf+KQ1sQz/tBvR36pqE3c2+92yJg1lowrumts6rS8X3VeR9/araUz5HOn5vswCZ5JRrEwdVZItVDRUxrvKrbD8g"
-      }
+      "token": "{{ secrets.TFE_TOKEN }}"
     }
   ],
   "packageRules": [
