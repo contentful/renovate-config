@@ -6,8 +6,7 @@
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
     "local>contentful/renovate-config:pinNodeLTS",
-    "local>contentful/renovate-config:terraformCloud",
-    "local>contentful/renovate-config:githubPackages"
+    "local>contentful/renovate-config:terraformCloud"
   ],
   "npm": {
     "enabled": false,
