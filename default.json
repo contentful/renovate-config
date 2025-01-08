@@ -6,14 +6,11 @@
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
     "local>contentful/renovate-config:pinNodeLTS",
-    "local>contentful/renovate-config:terraformCloud",
-    "local>contentful/renovate-config:githubPackages"
+    "local>contentful/renovate-config:terraformCloud"
   ],
   "npm": {
     "enabled": false,
-    "encrypted": {
-      "npmToken": "wcFMA/xDdHCJBTolAQ/+IvOFI9jPijw+BIMTAllGxXqQ+pjjlEkoc+ZgbLh44JxvwJlBdTCJLVHakPiULjDqOtH32vB/j1uxP2OEPbF8a/QdepLuLUbJqv22FWmqZ0dcSDbVyVOR6ZPueQNLSuMkQEcVMFK2H+P/HeYqL8EMUit9ukjz3pVdqJfqtKXOcaL6NY9XL6KfWCcLpM1wMtilo1wX7j6I33q8D4CLFki04+0C2T9Ha4of4tFHSkQXxahDzqLzcdVReoKyPb+bcQ5/VkTPtdtziT2i0L4Xk4MOFKonPc6qsePy+F5hLEjUh/PF5Nz7lGHgyzFXUdJ7i9AmMaZUVleE7QTR9ORD367ApGZU0J17boiN5E0qX/3yM3dE500bm9W60pOHHk0fu8bD+ZufwaVP96QAmlgq8U9B9OxEwvQ+7XjKYAHTqY7mkb4xnZGTQhA/7XUb8zc2g3UIVTr800K48cxiPAtMEYQdODTovi/T8wg9dPBsxTFz7F4IV/22865Yn924OqHzR4Z1h+CAqB0NvXs56Hgmmfo1Xsh24fegYT0PlzeznX0y7QyiBhABDvvVPpxQUuzkUw+ssffPQp6WKm+ujxo2nKSTgulaba2wkgR2eBPsBRsitlSWPteP7teWrw/CydW3KUdqvhQIBFTdF4AB/MEMrUKEnmur0LHKjIuNMv4wXeg1lQbSeQEoVeurAyRf2VIhQ9h0bewz/RHL1ysLGxUCbDGWXLYQtiMprnzS2cHTqhBHSq+Pp8npmiHC+OjiIXTeVhlMBssGpQJ1g0Sz8XhR14PuzPMdBq/37sh9yiv+jemejQ2KADjPRPD4LDklYyL6adCLeVDsVniB40Qlg9U"
-    },
+    "npmToken": "{{ secrets.WHYDAH_GALLY_NPM_TOKEN }}",
     "rangeStrategy": "bump"
   },
 
