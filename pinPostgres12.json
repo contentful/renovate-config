@@ -3,7 +3,7 @@
   "packageRules": [
     {
       "matchPackageNames": ["postgres", "cimg/postgres"],
-      "allowedVersions": "<= 12"
+      "allowedVersions": "<= 16"
     }
   ]
 }
