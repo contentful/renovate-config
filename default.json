@@ -17,11 +17,6 @@
   "semanticCommits": "enabled",
   "packageRules": [
     {
-      "description": "Disable Docker by default",
-      "matchCategories": ["docker"],
-      "enabled": false
-    },
-    {
       "description": "NodeJs bumps need Approval",
       "matchPackageNames": ["node"],
       "matchManagers": ["npm"],
