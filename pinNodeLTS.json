@@ -3,7 +3,7 @@
   "packageRules": [
     {
       "description": "Keep Nodejs at 22",
-      "matchPackageNames": ["cimg/node", "node"],
+      "matchPackageNames": ["cimg/node", "node", "@types/node"],
       "allowedVersions": "<= 22"
     }
   ]
