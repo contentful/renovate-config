@@ -16,6 +16,11 @@
       "matchHost": "registry.npmjs.org",
       "hostType": "npm",
       "token": "{{ secrets.WHYDAH_GALLY_NPM_TOKEN }}"
+    },
+    {
+      "matchHost": "npm.pkg.github.com",
+      "hostType": "npm",
+      "token": "{{ secrets.GITHUB_TOKEN }}"
     }
   ],
   "semanticCommits": "enabled",
