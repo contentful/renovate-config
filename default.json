@@ -9,11 +9,15 @@
     "local>contentful/renovate-config:terraformCloud"
   ],
   "npm": {
-    "enabled": false,
-    "npmToken": "{{ secrets.WHYDAH_GALLY_NPM_TOKEN }}",
-    "rangeStrategy": "bump"
+    "enabled": false
   },
-
+  "hostRules": [
+    {
+      "matchHost": "registry.npmjs.org",
+      "hostType": "npm",
+      "token": "{{ secrets.WHYDAH_GALLY_NPM_TOKEN }}"
+    }
+  ],
   "semanticCommits": "enabled",
   "packageRules": [
     {
