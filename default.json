@@ -33,7 +33,7 @@
       "dependencyDashboardApproval": true
     },
     {
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": ["major", "minor"],
       "matchPackageNames": ["postgres", "cimg/postgres"],
       "automerge": false
     }
