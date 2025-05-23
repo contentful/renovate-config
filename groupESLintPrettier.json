@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Group eslint-prettier dev-dependency updates together",
+      "matchPackageNames": ["**eslint**", "prettier"],
+      "groupName": "eslint-prettier packages"
+    }
+  ]
+}
