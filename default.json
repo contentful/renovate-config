@@ -25,6 +25,17 @@
     }
   ],
   "semanticCommits": "enabled",
+  "regexManagers": [
+    {
+      "fileMatch": ["^\\.github/workflows/.+\\.ya?ml$"],
+      "matchStrings": [
+        "tflint_version:\\s*(?<currentValue>v?[0-9]+\\.[0-9]+\\.[0-9]+)"
+      ],
+      "depNameTemplate": "terraform-linters/tflint",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
+    }
+  ],
   "packageRules": [
     {
       "description": "NodeJs bumps need Approval",
