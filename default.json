@@ -25,9 +25,10 @@
     }
   ],
   "semanticCommits": "enabled",
-  "regexManagers": [
+  "customManagers": [
     {
-      "fileMatch": ["^\\.github/workflows/.+\\.ya?ml$"],
+      "customType": "regex",
+      "managerFilePatterns": ["/^\\.github/workflows/.+\\.ya?ml$/"],
       "matchStrings": [
         "tflint_version:\\s*(?<currentValue>v?[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
