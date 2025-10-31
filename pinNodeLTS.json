@@ -2,9 +2,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": "Keep Nodejs at 22",
+      "description": "Keep Nodejs at 24",
       "matchPackageNames": ["cimg/node", "node", "@types/node"],
-      "allowedVersions": "<= 22"
+      "allowedVersions": "<= 24"
     }
   ]
 }
