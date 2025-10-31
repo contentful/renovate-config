@@ -39,9 +39,7 @@
   "packageRules": [
     {
       "description": "NodeJs bumps need Approval",
-      "matchPackageNames": ["node"],
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["engines"],
+      "matchPackageNames": ["cimg/node", "node", "@types/node"],
       "dependencyDashboardApproval": true
     },
     {
