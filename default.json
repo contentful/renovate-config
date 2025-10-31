@@ -40,7 +40,7 @@
     {
       "description": "NodeJs bumps need Approval",
       "matchPackageNames": ["cimg/node", "node", "@types/node"],
-      "dependencyDashboardApproval": true
+      "automerge": false
     },
     {
       "matchUpdateTypes": ["major", "minor"],
