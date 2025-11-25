@@ -11,7 +11,7 @@
   ],
   "npm": {
     "enabled": false,
-    "minimumReleaseAge": "7 days"
+    "minimumReleaseAge": "14 days"
   },
   "hostRules": [
     {
