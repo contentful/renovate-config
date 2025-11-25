@@ -10,7 +10,8 @@
     "local>contentful/renovate-config:groupESLintPrettier"
   ],
   "npm": {
-    "enabled": false
+    "enabled": false,
+    "minimumReleaseAge": "15 days"
   },
   "hostRules": [
     {
