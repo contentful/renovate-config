@@ -35,11 +35,6 @@
       "dependencyDashboardApproval": true
     },
     {
-      "matchUpdateTypes": ["major", "minor"],
-      "matchPackageNames": ["postgres", "cimg/postgres"],
-      "automerge": false
-    },
-    {
       "matchManagers": ["npm"],
       "matchPackageNames": ["*"],
       "matchDepTypes": ["peerDependencies"],
