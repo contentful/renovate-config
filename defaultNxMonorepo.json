@@ -1,0 +1,55 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":automergeRequireAllStatusChecks",
+    ":automergeAll",
+    "local>contentful/renovate-config:pinNodeLTS",
+    "local>contentful/renovate-config:terraformCloud",
+    "local>contentful/renovate-config:groupESLintPrettier",
+    "local>contentful/renovate-config:updateNxPluginAndWorkflows"
+  ],
+  "rangeStrategy": "bump",
+  "npm": {
+    "enabled": true
+  },
+  "hostRules": [
+    {
+      "matchHost": "registry.npmjs.org",
+      "hostType": "npm",
+      "token": "{{ secrets.WHYDAH_GALLY_NPM_TOKEN }}"
+    },
+    {
+      "matchHost": "npm.pkg.github.com",
+      "hostType": "npm",
+      "token": "{{ secrets.GITHUB_TOKEN }}"
+    }
+  ],
+  "semanticCommits": "enabled",
+  "packageRules": [
+    {
+      "description": "NodeJs bumps need Approval",
+      "matchPackageNames": ["node"],
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "matchUpdateTypes": ["major", "minor"],
+      "matchPackageNames": ["postgres", "cimg/postgres"],
+      "automerge": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["*"],
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["*"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "rangeStrategy": "bump"
+    }
+  ]
+}
