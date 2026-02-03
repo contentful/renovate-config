@@ -2,17 +2,16 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    ":preserveSemverRanges",
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
     "local>contentful/renovate-config:pinNodeLTS",
     "local>contentful/renovate-config:terraformCloud",
     "local>contentful/renovate-config:groupESLintPrettier",
-    "local>contentful/renovate-config:updateTflint"
+    "local>contentful/renovate-config:groupNxPluginAndWorkflows"
   ],
+  "rangeStrategy": "bump",
   "npm": {
-    "enabled": false,
-    "minimumReleaseAge": "15 days"
+    "enabled": true
   },
   "hostRules": [
     {
@@ -30,13 +29,22 @@
   "packageRules": [
     {
       "description": "NodeJs bumps need Approval",
-      "matchPackageNames": ["cimg/node", "node", "@types/node"],
-      "automerge": false
+      "matchPackageNames": ["node"],
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "dependencyDashboardApproval": true
     },
     {
-      "matchUpdateTypes": ["major", "minor"],
-      "matchPackageNames": ["postgres", "cimg/postgres"],
-      "automerge": false
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["*"],
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["*"],
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "rangeStrategy": "bump"
     }
   ]
 }
