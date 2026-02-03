@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  cf-validations: contentful/cf-validations@2
+  cf-validations: contentful/cf-validations@3
   vault: contentful/vault@1
   tech-docs: contentful/tech-docs@1
 
