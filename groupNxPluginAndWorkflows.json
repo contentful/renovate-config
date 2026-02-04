@@ -22,12 +22,6 @@
       "enabled": false
     },
     {
-      "description": "Disable digest-only updates for contentful/assemblies and contentful/developer-platform - we only want to update when the @contentful/nx version changes",
-      "matchPackageNames": ["contentful/assemblies", "contentful/developer-platform"],
-      "matchUpdateTypes": ["digest"],
-      "enabled": false
-    },
-    {
       "description": "Group @contentful/nx updates with reusable workflow references. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
       "groupName": "@contentful/nx and reusable workflows",
       "matchPackageNames": ["@contentful/nx", "contentful/assemblies", "contentful/developer-platform"],
