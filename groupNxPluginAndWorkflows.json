@@ -28,9 +28,9 @@
       "enabled": false
     },
     {
-      "description": "Group @contentful/nx updates with reusable workflow references. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
-      "groupName": "@contentful/nx and reusable workflows",
-      "matchPackageNames": ["@contentful/nx", "contentful/assemblies", "contentful/developer-platform"],
+      "description": "Group Developer-platform monorepo dependencies in one PR. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
+      "groupName": "developer-platform-monorepo",
+      "matchPackageNames": ["@contentful/service-kit", "@contentful/nx", "contentful/assemblies", "contentful/developer-platform"],
       "matchDatasources": ["npm", "github-tags"],
       "pinDigests": true
     }
