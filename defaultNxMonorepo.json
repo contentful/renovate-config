@@ -45,6 +45,11 @@
       "matchPackageNames": ["*"],
       "matchDepTypes": ["dependencies", "devDependencies"],
       "rangeStrategy": "bump"
-    }
+    },
+    {
+      "description": "Label PRs that update @contentful/nx",
+      "matchPackageNames": ["@contentful/nx"],
+      "labels": ["nx-migrate", "dependencies:nx"]
+    },
   ]
 }
