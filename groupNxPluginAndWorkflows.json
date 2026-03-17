@@ -28,15 +28,16 @@
       "enabled": false
     },
     {
-      "description": "Group Developer-platform monorepo dependencies in one PR. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
-      "groupName": "Contentful Developer Platform",
-      "matchSourceUrls": [
-        "https://github.com/nrwl/nx**",
-        "https://github.com/contentful/developer-platform/**",
-        "https://github.com/contentful/assemblies/**",
-      ],
+      "groupName": "nx and developer-platform",
+      "matchPackageNames": ["@contentful/service-kit", "@contentful/nx", "contentful/assemblies", "contentful/developer-platform"],
       "matchDatasources": ["npm", "github-tags"],
       "pinDigests": true
+    },
+    {
+      "groupName": "nx and developer-platform",
+      "matchSourceUrls": [
+        "https://github.com/nrwl/nx**",
+      ],
     }
   ]
 }
