@@ -31,13 +31,15 @@
       "groupName": "nx and developer-platform",
       "matchPackageNames": ["@contentful/service-kit", "@contentful/nx", "contentful/assemblies", "contentful/developer-platform"],
       "matchDatasources": ["npm", "github-tags"],
-      "pinDigests": true
+      "pinDigests": true,
+      "labels": ["nx-migrate", "dependencies:nx"]
     },
     {
       "groupName": "nx and developer-platform",
       "matchSourceUrls": [
         "https://github.com/nrwl/nx**",
       ],
+      "labels": ["nx-migrate", "dependencies:nx"]
     }
   ]
 }
