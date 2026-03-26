@@ -4,6 +4,7 @@
     "config:recommended",
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
+    "helpers:pinGitHubActionDigests",
     "local>contentful/renovate-config:pinNodeLTS",
     "local>contentful/renovate-config:terraformCloud",
     "local>contentful/renovate-config:groupESLintPrettier",
