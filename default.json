@@ -6,7 +6,7 @@
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
     "helpers:pinGitHubActionDigests",
-    "local>contentful/renovate-config:pinNodeLTS",
+    "local>contentful/renovate-config:node",
     "local>contentful/renovate-config:terraformCloud",
     "local>contentful/renovate-config:groupESLintPrettier",
     "local>contentful/renovate-config:updateTflint"
@@ -29,11 +29,6 @@
   ],
   "semanticCommits": "enabled",
   "packageRules": [
-    {
-      "description": "NodeJs bumps need Approval",
-      "matchPackageNames": ["cimg/node", "node", "@types/node"],
-      "automerge": false
-    },
     {
       "matchUpdateTypes": ["major", "minor"],
       "matchPackageNames": ["postgres", "cimg/postgres"],

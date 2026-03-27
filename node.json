@@ -2,6 +2,12 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
+      "description": "NodeJs major bumps need Approval",
+      "matchPackageNames": ["cimg/node", "node", "@types/node"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
       "description": "Keep Nodejs at 24",
       "matchPackageNames": ["cimg/node", "node", "@types/node"],
       "allowedVersions": "<= 24"
