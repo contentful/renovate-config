@@ -12,7 +12,8 @@
   ],
   "rangeStrategy": "bump",
   "npm": {
-    "enabled": true
+    "enabled": true,
+    "minimumReleaseAge": "15 days"
   },
   "hostRules": [
     {
@@ -46,6 +47,12 @@
       "matchPackageNames": ["*"],
       "matchDepTypes": ["dependencies", "devDependencies"],
       "rangeStrategy": "bump"
+    },
+    {
+      "description": "No minimum release age for trusted internal packages",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@contentful/nx", "@contentful/service-kit"],
+      "minimumReleaseAge": null
     }
   ]
 }
