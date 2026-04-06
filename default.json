@@ -11,9 +11,9 @@
     "local>contentful/renovate-config:groupESLintPrettier",
     "local>contentful/renovate-config:updateTflint"
   ],
+  "minimumReleaseAge": "15 days",
   "npm": {
-    "enabled": false,
-    "minimumReleaseAge": "15 days"
+    "enabled": false
   },
   "hostRules": [
     {
