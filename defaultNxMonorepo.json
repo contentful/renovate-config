@@ -10,10 +10,10 @@
     "local>contentful/renovate-config:groupESLintPrettier",
     "local>contentful/renovate-config:groupNxPluginAndWorkflows"
   ],
+  "minimumReleaseAge": "15 days",
   "rangeStrategy": "bump",
   "npm": {
-    "enabled": true,
-    "minimumReleaseAge": "15 days"
+    "enabled": true
   },
   "hostRules": [
     {
