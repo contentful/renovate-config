@@ -50,8 +50,7 @@
     },
     {
       "description": "No minimum release age for trusted internal packages",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["@contentful/nx", "@contentful/service-kit"],
+      "matchPackageNames": ["@contentful/nx", "@contentful/service-kit", "contentful/developer-platform", "contentful/assemblies"],
       "minimumReleaseAge": null
     }
   ]
