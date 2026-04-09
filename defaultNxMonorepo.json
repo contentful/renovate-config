@@ -5,7 +5,7 @@
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
     "helpers:pinGitHubActionDigests",
-    "local>contentful/renovate-config:pinNodeLTS",
+    "local>contentful/renovate-config:node",
     "local>contentful/renovate-config:terraformCloud",
     "local>contentful/renovate-config:groupESLintPrettier",
     "local>contentful/renovate-config:groupNxPluginAndWorkflows"
