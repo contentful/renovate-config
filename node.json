@@ -8,6 +8,11 @@
       "automerge": false
     },
     {
+      "description": "Group all Node.js updates into one PR",
+      "matchPackageNames": ["cimg/node", "node", "@types/node"],
+      "groupName": "Node.js"
+    },
+    {
       "description": "Keep Nodejs at 24",
       "matchPackageNames": ["cimg/node", "node", "@types/node"],
       "allowedVersions": "<= 24"
