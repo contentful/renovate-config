@@ -29,7 +29,7 @@
     },
     {
       "groupName": "nx and developer-platform",
-      "matchPackageNames": ["@contentful/service-kit", "@contentful/nx", "contentful/assemblies", "contentful/developer-platform"],
+      "matchPackageNames": ["@contentful/service-kit", "@contentful/nx", "contentful/assemblies", "contentful/developer-platform", "@contentful/eslint-plugin-service-kit"],
       "matchDatasources": ["npm", "github-tags"],
       "pinDigests": true,
       "labels": ["nx-migrate", "dependencies:nx"]
