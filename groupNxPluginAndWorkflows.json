@@ -28,14 +28,14 @@
       "enabled": false
     },
     {
-      "groupName": "nx and developer-platform",
+      "groupName": "@contentful/nx and developer-platform",
       "matchPackageNames": ["@contentful/service-kit", "@contentful/nx", "contentful/assemblies", "contentful/developer-platform", "@contentful/eslint-plugin-service-kit"],
       "matchDatasources": ["npm", "github-tags"],
       "pinDigests": true,
       "labels": ["nx-migrate", "dependencies:nx"]
     },
     {
-      "groupName": "nx and developer-platform",
+      "groupName": "nx",
       "matchSourceUrls": [
         "https://github.com/nrwl/nx**",
       ],
