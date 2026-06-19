@@ -3,15 +3,16 @@
   "regexManagers": [
     {
       "customType": "regex",
-      "description": "Update reusable workflow SHA references when @contentful/nx is updated. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
+      "description": "Update reusable workflow SHA references when @contentful/nx is updated. Always resolve workflow refs from contentful/developer-platform, including callers still pinned to contentful/assemblies. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
       "fileMatch": ["^\\.github/workflows/.+\\.ya?ml$"],
       "matchStrings": [
-        "uses:\\s*contentful/(?<repo>[^/]+)/\\.github/workflows/(?<workflow>[^@]+)@(?<currentDigest>\\S+)\\s*#\\s*@contentful/nx@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
+        "(?<indentation>\\s*)uses:\\s*contentful/(?:assemblies|developer-platform)/\\.github/workflows/(?<workflow>[^@\\s]+)@(?<currentDigest>\\S+)\\s*#\\s*@contentful/nx@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
       "depNameTemplate": "@contentful/nx",
       "datasourceTemplate": "github-tags",
-      "packageNameTemplate": "contentful/{{{repo}}}",
-      "extractVersionTemplate": "^@contentful/nx@(?<version>.*)$"
+      "packageNameTemplate": "contentful/developer-platform",
+      "extractVersionTemplate": "^@contentful/nx@(?<version>.*)$",
+      "autoReplaceStringTemplate": "{{{indentation}}}uses: contentful/developer-platform/.github/workflows/{{{workflow}}}@{{{newDigest}}} # @contentful/nx@{{{newValue}}}"
     }
   ],
   "packageRules": [
