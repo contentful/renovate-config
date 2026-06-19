@@ -4,9 +4,11 @@
     {
       "customType": "regex",
       "description": "Migrate contentful/assemblies reusable workflow references to contentful/developer-platform when @contentful/nx is updated. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
-      "fileMatch": ["^\\.github/workflows/.+\\.ya?ml$"],
+      "fileMatch": [
+        "^\\.github/workflows/.+\\.ya?ml$"
+      ],
       "matchStrings": [
-        "(?<indentation>[ \\t]*)uses:\\s*contentful/assemblies/\\.github/workflows/(?<workflow>[^@\\s]+)@(?<currentDigest>\\S+)\\s*#\\s*@contentful/nx@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
+        "(?<indentation>[\\t]*)uses:\\s*contentful/(?:assemblies|developer-platform)/\\.github/workflows/(?<workflow>[^@\\s]+)@(?<currentDigest>\\S+)\\s*#\\s*@contentful/nx@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
       "depNameTemplate": "@contentful/nx",
       "datasourceTemplate": "github-tags",
@@ -17,7 +19,9 @@
     {
       "customType": "regex",
       "description": "Update contentful/developer-platform reusable workflow SHA references when @contentful/nx is updated. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
-      "fileMatch": ["^\\.github/workflows/.+\\.ya?ml$"],
+      "fileMatch": [
+        "^\\.github/workflows/.+\\.ya?ml$"
+      ],
       "matchStrings": [
         "(?<indentation>[ \\t]*)uses:\\s*contentful/developer-platform/\\.github/workflows/(?<workflow>[^@\\s]+)@(?<currentDigest>\\S+)\\s*#\\s*@contentful/nx@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
@@ -31,30 +35,55 @@
   "packageRules": [
     {
       "description": "Disable github-actions manager for contentful/assemblies and contentful/developer-platform - the custom regex manager handles these with proper @contentful/nx version tracking",
-      "matchPackageNames": ["contentful/assemblies", "contentful/developer-platform"],
-      "matchManagers": ["github-actions"],
+      "matchPackageNames": [
+        "contentful/assemblies",
+        "contentful/developer-platform"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
       "enabled": false
     },
     {
       "description": "Disable digest-only updates for contentful/assemblies and contentful/developer-platform - we only want to update when the @contentful/nx version changes",
-      "matchPackageNames": ["contentful/assemblies", "contentful/developer-platform"],
-      "matchUpdateTypes": ["digest"],
+      "matchPackageNames": [
+        "contentful/assemblies",
+        "contentful/developer-platform"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ],
       "enabled": false
     },
     {
       "groupName": "developer-platform monorepo",
-      "matchPackageNames": ["@contentful/service-kit", "@contentful/nx", "contentful/assemblies", "contentful/developer-platform", "@contentful/eslint-plugin-service-kit"],
-      "matchDatasources": ["npm", "github-tags"],
+      "matchPackageNames": [
+        "@contentful/service-kit",
+        "@contentful/nx",
+        "contentful/assemblies",
+        "contentful/developer-platform",
+        "@contentful/eslint-plugin-service-kit"
+      ],
+      "matchDatasources": [
+        "npm",
+        "github-tags"
+      ],
       "pinDigests": true,
       "separateMajorMinor": false,
-      "labels": ["nx-migrate", "dependencies:nx"]
+      "labels": [
+        "nx-migrate",
+        "dependencies:nx"
+      ]
     },
     {
       "groupName": "nx monorepo",
       "matchSourceUrls": [
         "https://github.com/nrwl/nx**"
       ],
-      "labels": ["nx-migrate", "dependencies:nx"]
+      "labels": [
+        "nx-migrate",
+        "dependencies:nx"
+      ]
     }
   ]
 }
