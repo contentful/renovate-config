@@ -30,6 +30,17 @@
   "semanticCommits": "enabled",
   "packageRules": [
     {
+      "description": "Run terraform updates on their own overnight schedule so provider-hash generation (large providers like hashicorp/aws stream ~500MB per build) doesn't share heap with the npm/pnpm resolution phase and OOM the microVM runner.",
+      "matchManagers": ["terraform"],
+      "schedule": ["after 2am and before 6am"]
+    },
+    {
+      "description": "Cap terraform concurrency so at most two provider-hash jobs run at a time, further limiting peak heap on the runner.",
+      "matchManagers": ["terraform"],
+      "prConcurrentLimit": 2,
+      "branchConcurrentLimit": 2
+    },
+    {
       "description": "NodeJs bumps need Approval",
       "matchPackageNames": ["node"],
       "matchManagers": ["npm"],
