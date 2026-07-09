@@ -33,6 +33,10 @@
       "matchUpdateTypes": ["major", "minor"],
       "matchPackageNames": ["postgres", "cimg/postgres"],
       "automerge": false
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "pinDigests": true
     }
   ]
 }
