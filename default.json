@@ -12,6 +12,15 @@
     "local>contentful/renovate-config:updateTflint"
   ],
   "minimumReleaseAge": "15 days",
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "minimumReleaseAge": null,
+    "automerge": false,
+    "labels": ["security"]
+  },
+  "docker": {
+    "pinDigests": true
+  },
   "npm": {
     "enabled": true
   },
