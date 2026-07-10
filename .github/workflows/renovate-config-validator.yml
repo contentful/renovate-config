@@ -2,6 +2,9 @@ name: Renovate Config Validator
 
 on: pull_request
 
+permissions:
+  contents: read
+
 jobs:
   main:
     name: Main
@@ -15,3 +18,4 @@ jobs:
           node-version: 18
       - name: Validate Renovate config
         run: npx -p renovate --yes renovate-config-validator *.json
+
