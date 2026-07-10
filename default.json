@@ -11,6 +11,7 @@
     "local>contentful/renovate-config:groupESLintPrettier",
     "local>contentful/renovate-config:updateTflint"
   ],
+  "labels": ["dependencies", "renovate"],
   "minimumReleaseAge": "15 days",
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
