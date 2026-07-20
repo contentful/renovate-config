@@ -10,6 +10,8 @@
     "local>contentful/renovate-config:groupESLintPrettier"
   ],
   "labels": ["dependencies", "renovate"],
+  "prCreation": "not-pending",
+  "internalChecksFilter": "strict",
   "minimumReleaseAge": "15 days",
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
