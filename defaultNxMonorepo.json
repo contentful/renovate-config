@@ -1,43 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    ":automergeRequireAllStatusChecks",
-    ":automergeAll",
-    "helpers:pinGitHubActionDigests",
-    "local>contentful/renovate-config:node",
-    "local>contentful/renovate-config:terraformCloud",
-    "local>contentful/renovate-config:groupESLintPrettier",
+    "local>contentful/renovate-config:base",
     "local>contentful/renovate-config:groupNxPluginAndWorkflows"
   ],
-  "labels": ["dependencies", "renovate"],
-  "minimumReleaseAge": "15 days",
-  "osvVulnerabilityAlerts": true,
-  "vulnerabilityAlerts": {
-    "minimumReleaseAge": null,
-    "automerge": false,
-    "labels": ["security"]
-  },
-  "docker": {
-    "pinDigests": true
-  },
   "rangeStrategy": "bump",
-  "npm": {
-    "enabled": true
-  },
-  "hostRules": [
-    {
-      "matchHost": "registry.npmjs.org",
-      "hostType": "npm",
-      "token": "{{ secrets.WHYDAH_GALLY_NPM_TOKEN }}"
-    },
-    {
-      "matchHost": "npm.pkg.github.com",
-      "hostType": "npm",
-      "token": "{{ secrets.GITHUB_TOKEN }}"
-    }
-  ],
-  "semanticCommits": "enabled",
   "packageRules": [
     {
       "description": "Run terraform updates on their own overnight schedule so provider-hash generation (large providers like hashicorp/aws stream ~500MB per build) doesn't share heap with the npm/pnpm resolution phase and OOM the microVM runner.",

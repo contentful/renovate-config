@@ -1,43 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
+    "local>contentful/renovate-config:base",
     ":preserveSemverRanges",
-    ":automergeRequireAllStatusChecks",
-    ":automergeAll",
-    "helpers:pinGitHubActionDigests",
-    "local>contentful/renovate-config:node",
-    "local>contentful/renovate-config:terraformCloud",
-    "local>contentful/renovate-config:groupESLintPrettier",
     "local>contentful/renovate-config:updateTflint"
   ],
-  "labels": ["dependencies", "renovate"],
-  "minimumReleaseAge": "15 days",
-  "osvVulnerabilityAlerts": true,
-  "vulnerabilityAlerts": {
-    "minimumReleaseAge": null,
-    "automerge": false,
-    "labels": ["security"]
-  },
-  "docker": {
-    "pinDigests": true
-  },
-  "npm": {
-    "enabled": true
-  },
-  "hostRules": [
-    {
-      "matchHost": "registry.npmjs.org",
-      "hostType": "npm",
-      "token": "{{ secrets.WHYDAH_GALLY_NPM_TOKEN }}"
-    },
-    {
-      "matchHost": "npm.pkg.github.com",
-      "hostType": "npm",
-      "token": "{{ secrets.GITHUB_TOKEN }}"
-    }
-  ],
-  "semanticCommits": "enabled",
   "packageRules": [
     {
       "matchUpdateTypes": ["major", "minor"],
