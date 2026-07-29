@@ -12,12 +12,11 @@
   "labels": ["dependencies", "renovate"],
   "prCreation": "not-pending",
   "internalChecksFilter": "strict",
-  "minimumReleaseAge": "15 days",
+  "minimumReleaseAge": "2 days",
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
-    "minimumReleaseAge": null,
-    "automerge": false,
-    "labels": ["security"]
+    "minimumReleaseAge": "2 days",
+    "addLabels": ["security"]
   },
   "docker": {
     "pinDigests": true
