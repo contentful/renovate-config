@@ -8,16 +8,25 @@
         "^\\.github/workflows/.+\\.ya?ml$"
       ],
       "matchStrings": [
-        "(?<indentation>[ \\t]*)uses:\\s*contentful/(?:assemblies|developer-platform)/\\.github/workflows/(?<workflow>[^@\\s]+)@(?<currentDigest>\\S+)\\s*#\\s*(?<currentValue>@contentful/nx@[0-9]+\\.[0-9]+\\.[0-9]+)"
+        "(?<indentation>[ \\t]*)uses:\\s*contentful/(?:assemblies|developer-platform)/\\.github/workflows/(?<workflow>[^@\\s]+)@(?<currentDigest>\\S+)\\s*#\\s*@contentful/nx@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
       "depNameTemplate": "@contentful/nx",
       "datasourceTemplate": "github-tags",
       "packageNameTemplate": "contentful/developer-platform",
-      "extractVersionTemplate": "^@contentful/nx@(?<version>.*)$",
-      "autoReplaceStringTemplate": "{{{indentation}}}uses: contentful/developer-platform/.github/workflows/{{{workflow}}}@{{{newDigest}}} # {{{newValue}}}"
+      "autoReplaceStringTemplate": "{{{indentation}}}uses: contentful/developer-platform/.github/workflows/{{{workflow}}}@{{{newDigest}}} # @contentful/nx@{{{newValue}}}"
     }
   ],
   "packageRules": [
+    {
+      "description": "Strip @contentful/nx@ prefix from github-tags lookups for the @contentful/nx dep. Tags on contentful/developer-platform are shaped @contentful/nx@X.Y.Z (Nx monorepo release convention).",
+      "matchDepNames": [
+        "@contentful/nx"
+      ],
+      "matchDatasources": [
+        "github-tags"
+      ],
+      "extractVersion": "^@contentful/nx@(?<version>.*)$"
+    },
     {
       "description": "Disable github-actions manager for contentful/assemblies and contentful/developer-platform - the custom regex manager handles these with proper @contentful/nx version tracking",
       "matchPackageNames": [
