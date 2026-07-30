@@ -36,5 +36,12 @@
       "token": "{{ secrets.GITHUB_TOKEN }}"
     }
   ],
-  "semanticCommits": "enabled"
+  "semanticCommits": "enabled",
+  "packageRules": [
+    {
+      "description": "No minimum release age for trusted internal packages",
+      "matchPackageNames": ["@contentful/cf-entities", "@contentful/contentful-models"],
+      "minimumReleaseAge": null
+    }
+  ]
 }
