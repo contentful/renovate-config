@@ -40,7 +40,7 @@
   "packageRules": [
     {
       "description": "No minimum release age for trusted internal packages",
-      "matchPackageNames": ["@contentful/cf-entities", "@contentful/models"],
+      "matchPackageNames": ["@contentful/*"],
       "minimumReleaseAge": null
     }
   ]
