@@ -3,12 +3,12 @@
   "customManagers": [
     {
       "customType": "regex",
-      "description": "Update contentful/developer-platform reusable workflow references when @contentful/nx is updated. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
+      "description": "Migrate contentful/assemblies reusable workflow references to contentful/developer-platform when @contentful/nx is updated. See also https://contentful.atlassian.net/wiki/spaces/PROD/pages/6218252450/Thoughts+about+reusable+GitHub+workflows+Nx+Monorepos",
       "fileMatch": [
         "^\\.github/workflows/.+\\.ya?ml$"
       ],
       "matchStrings": [
-        "(?<indentation>[ \\t]*)uses:\\s*contentful/developer-platform/\\.github/workflows/(?<depType>[^@\\s]+)@(?<currentDigest>\\S+)\\s*#\\s*@contentful/nx@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
+        "(?<indentation>[ \\t]*)uses:\\s*contentful/(?:assemblies|developer-platform)/\\.github/workflows/(?<depType>[^@\\s]+)@(?<currentDigest>\\S+)\\s*#\\s*@contentful/nx@(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)"
       ],
       "depNameTemplate": "@contentful/nx",
       "datasourceTemplate": "github-tags",
