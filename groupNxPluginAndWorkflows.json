@@ -74,6 +74,7 @@
       "matchSourceUrls": [
         "https://github.com/nrwl/nx**"
       ],
+      "separateMajorMinor": false,
       "labels": [
         "nx-migrate",
         "dependencies:nx"
