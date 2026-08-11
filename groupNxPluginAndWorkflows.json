@@ -70,7 +70,7 @@
       ]
     },
     {
-      "groupName": "nx monorepo",
+      "groupName": "developer-platform monorepo",
       "matchSourceUrls": [
         "https://github.com/nrwl/nx**"
       ],
