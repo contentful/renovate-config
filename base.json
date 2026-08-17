@@ -34,6 +34,12 @@
       "matchHost": "npm.pkg.github.com",
       "hostType": "npm",
       "token": "{{ secrets.GITHUB_TOKEN }}"
+    },
+    {
+      "description": "Authenticate Docker Hub lookups to avoid the anonymous-pull rate limit (100 pulls/6hr per IP), which was causing intermittent 'no-result' lookup failures across many unrelated dependencies.",
+      "hostType": "docker",
+      "username": "{{ secrets.DOCKERHUB_USERNAME }}",
+      "password": "{{ secrets.DOCKERHUB_TOKEN }}"
     }
   ],
   "semanticCommits": "enabled",
