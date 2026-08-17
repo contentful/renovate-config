@@ -36,7 +36,7 @@
       "token": "{{ secrets.GITHUB_TOKEN }}"
     },
     {
-      "description": "Authenticate Docker Hub lookups to avoid the anonymous-pull rate limit (100 pulls/6hr per IP), which was causing intermittent 'no-result' lookup failures across many unrelated dependencies (docker, busybox, memcached, otel/opentelemetry-collector-contrib, etc. - see ACT-5072). Proven working in isolation on contentful/github-pr-linter (PR #1965) before landing here - see renovate-config#98 (reverted) / #100 (revert) for why that step mattered.",
+      "description": "Authenticate Docker Hub lookups to avoid the anonymous-pull rate limit (100 pulls/6hr per IP), which was causing intermittent 'no-result' lookup failures across many unrelated dependencies.",
       "hostType": "docker",
       "username": "{{ secrets.DOCKERHUB_USERNAME }}",
       "password": "{{ secrets.DOCKERHUB_TOKEN }}"
