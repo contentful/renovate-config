@@ -40,6 +40,14 @@
       "hostType": "docker",
       "username": "{{ secrets.DOCKERHUB_USERNAME }}",
       "password": "{{ secrets.DOCKERHUB_TOKEN }}"
+    },
+    {
+      "description": "ECR Public is a public registry — explicitly clear all credentials so Renovate does not send Docker Hub auth to it. The org-wide docker rule above has no matchHost, so without this override it applies to public.ecr.aws and causes silent digest lookup failures.",
+      "matchHost": "public.ecr.aws",
+      "hostType": "docker",
+      "token": "",
+      "username": "",
+      "password": ""
     }
   ],
   "semanticCommits": "enabled",
