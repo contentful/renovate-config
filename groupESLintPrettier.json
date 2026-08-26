@@ -2,8 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": "Group eslint-prettier dev-dependency updates together",
-      "matchPackageNames": ["**eslint**", "prettier"],
+      "description": "Group eslint and prettier updates together to prevent CI failures from peer-dep mismatches when eslint-adjacent packages are bumped in separate PRs",
+      "matchPackageNames": ["**eslint**", "**prettier**"],
       "groupName": "eslint-prettier packages"
     }
   ]
