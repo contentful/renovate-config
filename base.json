@@ -56,11 +56,6 @@
       "description": "No minimum release age for trusted internal packages",
       "matchPackageNames": ["@contentful/*"],
       "minimumReleaseAge": null
-    },
-    {
-      "description": "Skip @contentful/eslint-config-backend-typescript@8.x — that major only supports eslint@^8, incompatible when grouped with eslint@9/10 upgrades. Version 9.x+ supports eslint@9+/10+.",
-      "matchPackageNames": ["@contentful/eslint-config-backend-typescript"],
-      "allowedVersions": ">=9.0.0"
     }
   ]
 }

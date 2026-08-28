@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "Skip @contentful/eslint-config-backend-typescript@8.x — that major only supports eslint@^8; incompatible when grouped with eslint@9/10 upgrades. Opt in only after the repo has upgraded to ESLint 9 or later.",
+      "matchPackageNames": ["@contentful/eslint-config-backend-typescript"],
+      "allowedVersions": ">=9.0.0"
+    }
+  ]
+}
