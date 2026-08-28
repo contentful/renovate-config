@@ -53,8 +53,8 @@
   "semanticCommits": "enabled",
   "packageRules": [
     {
-      "description": "No minimum release age for trusted internal packages",
-      "matchPackageNames": ["@contentful/*"],
+      "description": "No minimum release age for trusted Contentful packages",
+      "matchPackageNames": ["@contentful/*", "contentful/*"],
       "minimumReleaseAge": null
     }
   ]
