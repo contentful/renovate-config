@@ -36,10 +36,11 @@
       "token": "{{ secrets.GITHUB_TOKEN }}"
     },
     {
-      "description": "Authenticate GitHub Packages RubyGems lookups. Without this, `bundle install` fails for any Gemfile with a private `rubygems.pkg.github.com` source, so Renovate cannot update Gemfile.lock and drops every gem PR.",
+      "description": "Authenticate GitHub Packages RubyGems lookups. GitHub Packages needs basic auth (user:token), so this must be username + password: Renovate emits a bare value with no colon for a token-only rule, which bundler rejects. Without working auth, `bundle install` fails for any Gemfile with a private `rubygems.pkg.github.com` source, so Renovate cannot update Gemfile.lock and drops every gem PR.",
       "matchHost": "rubygems.pkg.github.com",
       "hostType": "rubygems",
-      "token": "{{ secrets.GITHUB_TOKEN }}"
+      "username": "{{ secrets.RUBYGEMS_USER }}",
+      "password": "{{ secrets.RUBYGEMS_PASSWORD }}"
     },
     {
       "description": "Authenticate Docker Hub lookups to avoid the anonymous-pull rate limit (100 pulls/6hr per IP), which was causing intermittent 'no-result' lookup failures across many unrelated dependencies.",
