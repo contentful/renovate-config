@@ -39,7 +39,8 @@
       "description": "Authenticate GitHub Packages RubyGems lookups. Without this, `bundle install` fails for any Gemfile with a private `rubygems.pkg.github.com` source, so Renovate cannot update Gemfile.lock and drops every gem PR.",
       "matchHost": "rubygems.pkg.github.com",
       "hostType": "rubygems",
-      "token": "{{ secrets.GITHUB_TOKEN }}"
+      "username": "contentful-automation",
+      "password": "{{ secrets.GITHUB_TOKEN }}"
     },
     {
       "description": "Authenticate Docker Hub lookups to avoid the anonymous-pull rate limit (100 pulls/6hr per IP), which was causing intermittent 'no-result' lookup failures across many unrelated dependencies.",
