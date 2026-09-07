@@ -28,7 +28,7 @@
       "extractVersion": "^@contentful/nx@(?<version>.*)$"
     },
     {
-      "description": "Disable github-actions manager for contentful/assemblies and contentful/developer-platform - the custom regex manager handles these with proper @contentful/nx version tracking",
+      "description": "Disable github-actions manager for contentful/assemblies and contentful/developer-platform reusable workflows - the custom regex manager handles these with proper @contentful/nx version tracking",
       "matchPackageNames": [
         "contentful/assemblies",
         "contentful/developer-platform"
@@ -36,13 +36,22 @@
       "matchManagers": [
         "github-actions"
       ],
+      "matchDepTypes": [
+        "workflow"
+      ],
       "enabled": false
     },
     {
-      "description": "Disable digest-only updates for contentful/assemblies and contentful/developer-platform - we only want to update when the @contentful/nx version changes",
+      "description": "Disable digest-only updates for contentful/assemblies and contentful/developer-platform reusable workflows - we only want to update when the @contentful/nx version changes",
       "matchPackageNames": [
         "contentful/assemblies",
         "contentful/developer-platform"
+      ],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchDepTypes": [
+        "workflow"
       ],
       "matchUpdateTypes": [
         "digest"
