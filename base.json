@@ -60,8 +60,13 @@
   "semanticCommits": "enabled",
   "packageRules": [
     {
-      "description": "No minimum release age for trusted Contentful packages",
+      "description": "No minimum release age for trusted Contentful packages (matched by package name)",
       "matchPackageNames": ["@contentful/*", "contentful/*"],
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "No minimum release age for trusted Contentful packages (matched by package registry URL)",
+      "matchRegistryUrls": ["rubygems.pkg.github.com", "npm.pkg.github.com"],
       "minimumReleaseAge": null
     }
   ]
