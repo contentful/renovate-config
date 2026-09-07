@@ -42,16 +42,10 @@
       "enabled": false
     },
     {
-      "description": "Disable digest-only updates for contentful/assemblies and contentful/developer-platform reusable workflows - we only want to update when the @contentful/nx version changes",
+      "description": "Disable digest-only updates for contentful/assemblies and contentful/developer-platform - we only want to update when the @contentful/nx version changes",
       "matchPackageNames": [
         "contentful/assemblies",
         "contentful/developer-platform"
-      ],
-      "matchManagers": [
-        "github-actions"
-      ],
-      "matchDepTypes": [
-        "workflow"
       ],
       "matchUpdateTypes": [
         "digest"
