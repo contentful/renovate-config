@@ -8,8 +8,10 @@ does not build, run, or deploy anything itself — it only publishes JSON.
 ## Where things live
 
 - `base.json` — settings shared by every consumer (labels, host rules,
-  vulnerability alerts, release age, docker/npm defaults). Edit here when a
-  change should apply to all consumers.
+  vulnerability alerts, release age, non-office-hours scheduling, and
+  docker/npm defaults). Edit here when a change should apply to all consumers.
+  Timezone selection stays with each consuming repository because it depends on
+  where that repository's maintaining team works.
 - `default.json` / `defaultNxMonorepo.json` — the two entrypoint presets most
   repos actually extend; each layers only its differences on top of `base`.
 - `node.json`, `terraformCloud.json`, `groupESLintPrettier.json`,
