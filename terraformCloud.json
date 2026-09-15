@@ -11,7 +11,8 @@
       "description": "No minimum release age for trusted internal Terraform modules",
       "matchDatasources": ["terraform-module"],
       "matchPackageNames": ["app.terraform.io/contentful/**"],
-      "minimumReleaseAge": null
+      "minimumReleaseAge": null,
+      "recreateWhen": "always"
     },
     {
       "description": "Require manual approval for Terraform updates",
