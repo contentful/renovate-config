@@ -17,6 +17,20 @@
       "description": "Require manual approval for Terraform updates",
       "matchCategories": ["terraform"],
       "automerge": false
+    },
+    {
+      "description": "Auto-merge non-major updates to Contentful's own Terraform modules. These are semver'd and internally owned, and a patch bump is the review nobody performs meaningfully. Majors still fall through to the manual-approval rule above. The 1-day minimumReleaseAge overrides the null set for these modules further up: with automerge:false that null was harmless, but auto-merging a version published seconds ago leaves no window to catch a bad release. Majors keep the null, so a deliberate rollout is still immediate.",
+      "matchDatasources": ["terraform-module"],
+      "matchPackageNames": ["app.terraform.io/contentful/**"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "minimumReleaseAge": "1 day",
+      "automerge": true
+    },
+    {
+      "description": "Auto-merge non-major tflint and tflint ruleset updates. Lint-only: these cannot change infrastructure, so the worst case is a noisy lint job rather than an unwanted apply. Covers both the tflint-plugin manager and the tflint binary version managed by updateTflint. Providers are deliberately NOT auto-merged: a green plan means the config is valid, not that the diff is desirable, and consumers differ in whether merging to main applies to production.",
+      "matchPackageNames": ["terraform-linters/**"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
     }
   ]
 }
