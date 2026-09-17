@@ -29,9 +29,9 @@ observed in this repo.
 `defaultNxMonorepo.json` are the two entrypoint presets most repos actually
 extend, and each layers only its differences over `base.json`. The remaining
 files (`node.json`, `terraformCloud.json`, `groupESLintPrettier.json`,
-`groupNxPluginAndWorkflows.json`, `updateTflint.json`) are optional presets a
-consumer can add individually to `extends`. This repo has no runtime
-component of its own beyond this JSON.
+`groupNxPluginAndWorkflows.json`, `updateTflint.json`, `syncAgentSkills.json`)
+are optional presets a consumer can add individually to `extends`. This repo
+has no runtime component of its own beyond this JSON.
 
 ## Supporting mechanisms
 
