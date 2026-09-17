@@ -23,3 +23,20 @@ If you want to get started with Renovate on your repository, you will need to re
 Once the app is installed on your repository, a PR will be created to create the configuration `renovate.json` file. You should merge this to complete the setup of Renovate.
 
 Once you have done this, you can configure any additional managers you may require specifically for your project.
+
+## Synchronize Agents Kit skills
+
+Repositories that commit generated Agents Kit skills can add the optional preset:
+
+```json
+{
+  "extends": [
+    "local>contentful/renovate-config",
+    "local>contentful/renovate-config:syncAgentSkills"
+  ]
+}
+```
+
+It applies only to npm updates for `@contentful/agents-kit` or `@contentful/*skill*`. Renovate performs a full dependency install, runs `contentful-agents-kit skills install` once per branch, and includes generated changes only from `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`.
+
+The Mend-hosted Renovate command is centrally allowed. Consuming repositories must declare Agents Kit and its generated skill configuration. Command or install failures surface as Renovate artifact errors.

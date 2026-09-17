@@ -10,8 +10,26 @@ Configuration presets for renovate in Contentful
 
 - `default.json` — general repos. Extends `base` plus `:preserveSemverRanges` (uses the `replace` range strategy) and `updateTflint`.
 - `defaultNxMonorepo.json` — complex Nx monorepos. Extends `base` plus `groupNxPluginAndWorkflows`, and overrides the range strategy to `bump` with per-depType npm rules and terraform scheduling.
+- `syncAgentSkills.json` — optional preset that regenerates repository-shared Agents Kit skills after matching package upgrades.
 
 When changing a setting that should apply everywhere, edit `base.json` so it stays in one place; only put entrypoint-specific overrides in `default.json` / `defaultNxMonorepo.json`.
+
+## Agents Kit skill synchronization
+
+Repositories that commit generated Agents Kit skills can opt in with:
+
+```json
+{
+  "extends": [
+    "local>contentful/renovate-config",
+    "local>contentful/renovate-config:syncAgentSkills"
+  ]
+}
+```
+
+The preset applies only to npm updates for `@contentful/agents-kit` or `@contentful/*skill*`. It performs a full dependency install, runs `contentful-agents-kit skills install` once per Renovate branch, and includes generated changes only from `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`.
+
+The Mend-hosted Renovate command is centrally allowed. The consuming repository must declare Agents Kit and its generated skill configuration. Command or install failures surface as Renovate artifact errors.
 
 ## Scheduling
 

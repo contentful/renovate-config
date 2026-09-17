@@ -10,8 +10,8 @@ Most changes belong in `base.json` if they should apply to every consumer, or
 in the specific entrypoint/preset file (`default.json`,
 `defaultNxMonorepo.json`, `node.json`, `terraformCloud.json`,
 `groupESLintPrettier.json`, `groupNxPluginAndWorkflows.json`,
-`updateTflint.json`) if they're specific to one use case. Avoid duplicating a
-setting across files.
+`updateTflint.json`, `syncAgentSkills.json`) if they're specific to one use
+case. Avoid duplicating a setting across files.
 
 ## What actually runs in CI
 
