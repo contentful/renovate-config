@@ -7,6 +7,14 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
+      "description": "Keep Nx packages in one update because the generic monorepo preset does not consistently group their npm metadata.",
+      "groupName": "Nx packages",
+      "groupSlug": "nx",
+      "matchPackageNames": ["nx", "/^@nx\\//"],
+      "separateMajorMinor": false,
+      "labels": ["nx-migrate", "dependencies:nx"]
+    },
+    {
       "description": "Run terraform updates on their own overnight schedule so provider-hash generation (large providers like hashicorp/aws stream ~500MB per build) doesn't share heap with the npm/pnpm resolution phase and OOM the microVM runner.",
       "matchManagers": ["terraform"],
       "schedule": ["after 2am and before 6am"]
