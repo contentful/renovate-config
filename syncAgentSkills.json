@@ -5,6 +5,7 @@
       "description": "Regenerate repository-shared Agents Kit skills after Agents Kit or Contentful skill package upgrades",
       "matchManagers": ["npm"],
       "matchPackageNames": ["@contentful/agents-kit", "@contentful/*skill*"],
+      "groupName": "agents-kit",
       "skipInstalls": false,
       "postUpgradeTasks": {
         "commands": ["./node_modules/.bin/contentful-agents-kit skills install"],
