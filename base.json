@@ -62,6 +62,11 @@
   "semanticCommits": "enabled",
   "packageRules": [
     {
+      "description": "Block TypeScript 7 updates",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7"
+    },
+    {
       "description": "No minimum release age for trusted Contentful packages (matched by package name)",
       "matchPackageNames": ["@contentful/*", "contentful/*"],
       "minimumReleaseAge": null
