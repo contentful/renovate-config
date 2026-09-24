@@ -8,12 +8,6 @@
       "groupName": "AI SDK packages"
     },
     {
-      "description": "Keep AWS SDK packages synchronized",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["@aws-sdk/*"],
-      "groupName": "AWS SDK packages"
-    },
-    {
       "description": "Keep Contentful Experience packages synchronized",
       "matchManagers": ["npm"],
       "matchPackageNames": ["/^@contentful\\/experiences?-/"],
@@ -44,12 +38,6 @@
       "groupName": "forma 36 packages"
     },
     {
-      "description": "Keep Lingui packages synchronized",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["@lingui/*"],
-      "groupName": "Lingui packages"
-    },
-    {
       "description": "Keep Playwright packages synchronized",
       "matchPackageNames": [
         "@playwright/test",
@@ -58,24 +46,6 @@
         "mcr.microsoft.com/playwright"
       ],
       "groupName": "Playwright packages"
-    },
-    {
-      "description": "Keep Storybook packages synchronized",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["storybook", "@storybook/*"],
-      "groupName": "Storybook packages"
-    },
-    {
-      "description": "Keep Testing Library packages synchronized",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["@testing-library/*"],
-      "groupName": "Testing Library packages"
-    },
-    {
-      "description": "Keep Sentry packages synchronized",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["@sentry/*"],
-      "groupName": "Sentry packages"
     },
     {
       "description": "Keep OpenTelemetry packages synchronized",
@@ -88,31 +58,6 @@
       "matchManagers": ["npm"],
       "matchPackageNames": ["@hapi/*", "/^@contentful\\/hapi-/"],
       "groupName": "Hapi packages"
-    },
-    {
-      "description": "Keep GraphQL Tools packages synchronized",
-      "matchManagers": ["npm"],
-      "matchPackageNames": ["@graphql-tools/*"],
-      "groupName": "GraphQL Tools packages"
-    },
-    {
-      "description": "Keep JavaScript test tooling synchronized",
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["devDependencies"],
-      "matchPackageNames": [
-        "chai",
-        "chai-*",
-        "@types/chai",
-        "@types/chai-*",
-        "mocha",
-        "@types/mocha",
-        "sinon",
-        "sinon-*",
-        "@types/sinon",
-        "@types/sinon-*",
-        "nock"
-      ],
-      "groupName": "JavaScript test tooling"
     }
   ]
 }
