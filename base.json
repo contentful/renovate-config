@@ -7,9 +7,10 @@
     ":automergeRequireAllStatusChecks",
     ":automergeAll",
     "helpers:pinGitHubActionDigests",
+    "group:linters",
+    "group:jsTest",
     "local>contentful/renovate-config:node",
     "local>contentful/renovate-config:terraformCloud",
-    "local>contentful/renovate-config:groupESLintPrettier",
     "local>contentful/renovate-config:groupCommonPackages"
   ],
   "labels": ["dependencies", "renovate"],
