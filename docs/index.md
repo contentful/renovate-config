@@ -37,6 +37,8 @@ Repositories that commit generated Agents Kit skills can add the optional preset
 }
 ```
 
-It applies only to npm updates for `@contentful/agents-kit` or `@contentful/*skill*`. Renovate performs a full dependency install, runs `contentful-agents-kit skills install` once per branch, and includes generated changes only from `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`.
+It applies only to npm updates for `@contentful/agents-kit` or `@contentful/*skill*`. Renovate performs a full dependency install, runs `contentful-agents-kit skills install --allow-destructive` once per branch, and includes generated changes only from `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`.
 
-The Mend-hosted Renovate command is centrally allowed. Consuming repositories must declare Agents Kit and its generated skill configuration. Command or install failures surface as Renovate artifact errors.
+The flag lets unattended updates replace stale generated skills. It also permits overwriting edits in installed package skills and deleting skills in managed roots that are not declared in the Agents Kit configuration, even if Git tracks them. Keep custom skills registered as directory sources in `agentsKit.skills.uses.sources`; edit those sources rather than generated package copies. Use the default `./skills` shared root because the preset's file filters do not capture custom shared roots.
+
+The Mend-hosted Renovate command is centrally allowed. Consuming repositories must declare Agents Kit 0.27.0 or newer, which supports `--allow-destructive`, and its generated skill configuration. Command or install failures surface as Renovate artifact errors.

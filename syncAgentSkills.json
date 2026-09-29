@@ -8,7 +8,9 @@
       "groupName": "agents-kit",
       "skipInstalls": false,
       "postUpgradeTasks": {
-        "commands": ["./node_modules/.bin/contentful-agents-kit skills install"],
+        "commands": [
+          "./node_modules/.bin/contentful-agents-kit skills install --allow-destructive"
+        ],
         "executionMode": "branch",
         "fileFilters": ["skills/**", ".agents/**", ".claude/**", ".cursor/**"]
       }
