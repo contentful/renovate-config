@@ -14,6 +14,15 @@
         "executionMode": "branch",
         "fileFilters": ["skills/**", ".agents/**", ".claude/**", ".cursor/**"]
       }
+    },
+    {
+      "description": "Temporarily pause pnpm skill regeneration pending CAO-475",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@contentful/agents-kit", "@contentful/*skill*"],
+      "matchFileNames": ["pnpm-lock.yaml"],
+      "postUpgradeTasks": {
+        "commands": []
+      }
     }
   ]
 }

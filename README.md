@@ -27,7 +27,16 @@ Repositories that commit generated Agents Kit skills can opt in with:
 }
 ```
 
-The preset applies only to npm updates for `@contentful/agents-kit` or `@contentful/*skill*`. It performs a full dependency install, runs `contentful-agents-kit skills install --allow-destructive` once per Renovate branch, and includes generated changes only from `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`.
+The preset groups npm-manager updates for `@contentful/agents-kit` or `@contentful/*skill*`. The generic rule requests installation with `skipInstalls: false`, runs `contentful-agents-kit skills install --allow-destructive` once per Renovate branch, and includes generated changes only from `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`.
+
+Skill regeneration is temporarily paused for repositories using a root `pnpm-lock.yaml`, pending [CAO-475](https://contentful.atlassian.net/browse/CAO-475). Renovate's pnpm updater uses `--lockfile-only`, so the local CLI may be unavailable even with `skipInstalls: false`. Dependency updates continue. Refresh committed skills manually on each affected PR branch before merging:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm exec contentful-agents-kit skills install --allow-destructive
+```
+
+After this preset change is merged, request a rebase/retry on failing pnpm PRs and verify that their Renovate artifact status clears.
 
 The flag lets unattended updates replace stale generated skills. It also permits overwriting edits in installed package skills and deleting skills in managed roots that are not declared in the Agents Kit configuration, even if Git tracks them. Keep custom skills registered as directory sources in `agentsKit.skills.uses.sources`; edit those sources rather than generated package copies. Use the default `./skills` shared root because the preset's file filters do not capture custom shared roots.
 
