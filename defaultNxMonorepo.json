@@ -7,6 +7,12 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
+      "description": "Hold Nx below v24 until @contentful/nx compatibility is ready",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["nx", "@nx/*", "@nrwl/*"],
+      "allowedVersions": "<24.0.0"
+    },
+    {
       "description": "Run terraform updates on their own overnight schedule so provider-hash generation (large providers like hashicorp/aws stream ~500MB per build) doesn't share heap with the npm/pnpm resolution phase and OOM the microVM runner.",
       "matchManagers": ["terraform"],
       "schedule": ["after 2am and before 6am"]
