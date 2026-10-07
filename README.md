@@ -29,14 +29,38 @@ Repositories that commit generated Agents Kit skills can opt in with:
 
 The preset groups npm-manager updates for `@contentful/agents-kit` or `@contentful/*skill*`. The generic rule requests installation with `skipInstalls: false`, runs `contentful-agents-kit skills install --allow-destructive` once per Renovate branch, and includes generated changes only from `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`.
 
-Skill regeneration is temporarily paused for repositories using a root `pnpm-lock.yaml`, pending [CAO-475](https://contentful.atlassian.net/browse/CAO-475). Renovate's pnpm updater uses `--lockfile-only`, so the local CLI may be unavailable even with `skipInstalls: false`. Dependency updates continue. Refresh committed skills manually on each affected PR branch before merging:
+For repositories using a root `pnpm-lock.yaml`, a later rule replaces the generic command list with:
 
 ```sh
-pnpm install --frozen-lockfile
-pnpm exec contentful-agents-kit skills install --allow-destructive
+pnpm install --frozen-lockfile --ignore-scripts
+./node_modules/.bin/contentful-agents-kit skills install --allow-destructive
 ```
 
-After this preset change is merged, request a rebase/retry on failing pnpm PRs and verify that their Renovate artifact status clears.
+Renovate's pnpm updater uses `--lockfile-only`, so `skipInstalls: false` does not populate `node_modules`. The explicit installation makes the local CLI and configured skill packages available, installs from the updated lockfile without changing it, and skips dependency lifecycle scripts. The pnpm rule inherits the package group, but replaces the entire `postUpgradeTasks` object, so it explicitly repeats the branch execution mode and generated-file filters. npm and Yarn retain the generic command list.
+
+### Mend-hosted pnpm requirements
+
+The explicit install needs private-registry authentication separately from Renovate's lockfile update. Renovate restores its temporary host-rule `.npmrc` before post-upgrade tasks, so existing `hostRules` do not establish authentication for this install.
+
+Append the following pattern to the existing `RENOVATE_ALLOWED_COMMANDS` in Mend settings, retaining the allowed Agents Kit command and other existing entries:
+
+```text
+^pnpm install --frozen-lockfile --ignore-scripts$
+```
+
+Store a read token for each required private registry in Mend Credentials. For GitHub Packages, an example `RENOVATE_CUSTOM_ENV_VARIABLES` entry is:
+
+```json
+{
+  "npm_config_//npm.pkg.github.com/:_authToken": "{{ secrets.GH_PACKAGES_TOKEN }}"
+}
+```
+
+Merge this entry into existing custom environment settings. `GH_PACKAGES_TOKEN` must refer to a Mend secret with access to the required packages; configure equivalent registry-specific entries if the full dependency installation needs other private registries. Keep tokens in Mend settings, outside repository files and command arguments. The preset cannot grant command permissions or configure hosted credentials itself.
+
+This credential mechanism is documented for pnpm 10, including the `pnpm@10.34.5` repositories in [CAO-475](https://contentful.atlassian.net/browse/CAO-475). Since pnpm 10.34.2, credential placeholders in project/workspace `.npmrc` files are not expanded; direct `npm_config_*` environment settings avoid that restriction. Recheck authentication when changing pnpm major versions. See [pnpm authentication](https://pnpm.io/10.x/npmrc), [Renovate custom environment variables](https://docs.renovatebot.com/self-hosted-configuration/#customenvvariables), and [Mend environment settings](https://docs.renovatebot.com/mend-hosted/environment-variables/#enterprise-and-mend-appsec-users-environment-variables).
+
+The pnpm configuration is a proposal for CAO-475; execution and credential forwarding have not been verified in a Mend-hosted consumer. Full installation fetches repository dependencies and increases job duration. Install and generation failures remain Renovate artifact errors; inspect the installation error first if both commands fail. To restore the temporary pnpm pause, set the later rule's `postUpgradeTasks.commands` to `[]` and refresh skills manually on affected PR branches.
 
 The flag lets unattended updates replace stale generated skills. It also permits overwriting edits in installed package skills and deleting skills in managed roots that are not declared in the Agents Kit configuration, even if Git tracks them. Keep custom skills registered as directory sources in `agentsKit.skills.uses.sources`; edit those sources rather than generated package copies. Use the default `./skills` shared root because the preset's file filters do not capture custom shared roots.
 

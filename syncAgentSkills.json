@@ -16,12 +16,17 @@
       }
     },
     {
-      "description": "Temporarily pause pnpm skill regeneration pending CAO-475",
+      "description": "Install pnpm dependencies before regenerating repository-shared Agents Kit skills",
       "matchManagers": ["npm"],
       "matchPackageNames": ["@contentful/agents-kit", "@contentful/*skill*"],
       "matchFileNames": ["pnpm-lock.yaml"],
       "postUpgradeTasks": {
-        "commands": []
+        "commands": [
+          "pnpm install --frozen-lockfile --ignore-scripts",
+          "./node_modules/.bin/contentful-agents-kit skills install --allow-destructive"
+        ],
+        "executionMode": "branch",
+        "fileFilters": ["skills/**", ".agents/**", ".claude/**", ".cursor/**"]
       }
     }
   ]
