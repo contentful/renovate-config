@@ -27,7 +27,7 @@ Repositories that commit generated Agents Kit skills can opt in with:
 }
 ```
 
-The preset groups npm-manager updates for `@contentful/agents-kit` or `@contentful/*skill*` and uses `rangeStrategy: "bump"` for both the CLI and skill packages, including updates within existing semver ranges. Existing schedules, version constraints, and prerelease policies still apply. The generic rule requests installation with `skipInstalls: false`, runs `contentful-agents-kit skills install --allow-destructive` once per Renovate branch, and includes generated changes only from `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`.
+The preset groups npm-manager updates for `@contentful/agents-kit` or `@contentful/*skill*` and uses `rangeStrategy: "bump"` for both the CLI and skill packages, including updates within existing semver ranges. Existing schedules, version constraints, and prerelease policies still apply. The generic rule requests installation with `skipInstalls: false`, runs `contentful-agents-kit skills install --allow-destructive` once per Renovate branch, and commits every file the install changes. `skills install` writes only managed output: the `./skills` shared root, native agent folders such as `.agents/skills`, `.claude/skills`, and `.cursor/skills`, [custom install targets](https://github.com/contentful/agents-kit/blob/main/docs/guide/consuming-skills.md#install-into-custom-folders), and `.agents-kit/custom-targets.json`.
 
 For repositories using a root `pnpm-lock.yaml`, a later rule replaces the generic command list with:
 
@@ -67,7 +67,7 @@ This credential mechanism is documented for pnpm 10, including the `pnpm@10.34.5
 
 The pnpm configuration is a proposal for CAO-475; execution and credential forwarding have not been verified in a Mend-hosted consumer. Full installation fetches repository dependencies and increases job duration. Install and generation failures remain Renovate artifact errors; inspect the installation error first if both commands fail. To restore the temporary pnpm pause, set the later rule's `postUpgradeTasks.commands` to `[]` and refresh skills manually on affected PR branches.
 
-The flag lets unattended updates replace stale generated skills. It also permits overwriting edits in installed package skills and deleting skills in managed roots that are not declared in the Agents Kit configuration, even if Git tracks them. Keep custom skills registered as directory sources in `agentsKit.skills.uses.sources`; edit those sources rather than generated package copies. Use the default `./skills` shared root because the preset's file filters do not capture custom shared roots.
+The flag lets unattended updates replace stale generated skills. It also permits overwriting edits in installed package skills and deleting skills in managed roots that are not declared in the Agents Kit configuration, even if Git tracks them. Keep custom skills registered as directory sources in `agentsKit.skills.uses.sources`; edit those sources rather than generated package copies.
 
 The Mend-hosted Renovate command is centrally allowed. The consuming repository must declare Agents Kit 0.27.0 or newer, which supports `--allow-destructive`, and its generated skill configuration. Skill packages that explicitly provide the package root (`"."`) require Agents Kit 1.6.0 or newer. The shared `bump` strategy avoids retaining an outdated locked CLI within an unchanged semver range. Command or install failures surface as Renovate artifact errors.
 
