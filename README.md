@@ -32,21 +32,26 @@ The preset groups npm-manager updates for `@contentful/agents-kit` or `@contentf
 For repositories using a root `pnpm-lock.yaml`, a later rule replaces the generic command list with:
 
 ```sh
-pnpm install --frozen-lockfile --ignore-scripts
+pnpm install --frozen-lockfile --ignore-scripts --ignore-pnpmfile
 ./node_modules/.bin/contentful-agents-kit skills install --allow-destructive
 ```
 
-Renovate's pnpm updater uses `--lockfile-only`, so `skipInstalls: false` does not populate `node_modules`. The explicit installation makes the local CLI and configured skill packages available, installs from the updated lockfile without changing it, and skips dependency lifecycle scripts. The pnpm rule inherits the package group, but replaces the entire `postUpgradeTasks` object, so it explicitly repeats the branch execution mode and generated-file filters. npm and Yarn retain the generic command list.
+Renovate's pnpm updater uses `--lockfile-only`, so `skipInstalls: false` does not populate `node_modules`. The explicit installation makes the local CLI and configured skill packages available, installs from the updated lockfile without changing it, and skips lifecycle scripts and `.pnpmfile.cjs` execution. The pnpm rule inherits the package group, but replaces the entire `postUpgradeTasks` object, so it explicitly repeats the branch execution mode and generated-file filters. npm and Yarn retain the generic command list.
 
 ### Mend-hosted pnpm requirements
 
 The explicit install needs private-registry authentication separately from Renovate's lockfile update. Renovate restores its temporary host-rule `.npmrc` before post-upgrade tasks, so existing `hostRules` do not establish authentication for this install.
 
-Append the following pattern to the existing `RENOVATE_ALLOWED_COMMANDS` in Mend settings, retaining the allowed Agents Kit command and other existing entries:
+Keep the reviewed Agents Kit command and other existing entries, and append these exact, anchored regex strings to the existing JSON array in `RENOVATE_ALLOWED_COMMANDS`:
 
 ```text
-^pnpm install --frozen-lockfile --ignore-scripts$
+[
+  "^\\./node_modules/\\.bin/contentful-agents-kit skills install --allow-destructive$",
+  "^pnpm install --frozen-lockfile --ignore-scripts --ignore-pnpmfile$"
+]
 ```
+
+Keep shell execution disabled and check inherited Mend permissions. These hosted settings are outside this repository.
 
 Store a read token for each required private registry in Mend Credentials. For GitHub Packages, an example `RENOVATE_CUSTOM_ENV_VARIABLES` entry is:
 

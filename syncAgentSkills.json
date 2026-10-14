@@ -22,7 +22,7 @@
       "matchFileNames": ["pnpm-lock.yaml"],
       "postUpgradeTasks": {
         "commands": [
-          "pnpm install --frozen-lockfile --ignore-scripts",
+          "pnpm install --frozen-lockfile --ignore-scripts --ignore-pnpmfile",
           "./node_modules/.bin/contentful-agents-kit skills install --allow-destructive"
         ],
         "executionMode": "branch",
