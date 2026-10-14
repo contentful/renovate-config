@@ -6,6 +6,7 @@
       "matchManagers": ["npm"],
       "matchPackageNames": ["@contentful/agents-kit", "@contentful/*skill*"],
       "groupName": "agents-kit",
+      "rangeStrategy": "bump",
       "skipInstalls": false,
       "postUpgradeTasks": {
         "commands": [
