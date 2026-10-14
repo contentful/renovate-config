@@ -13,7 +13,7 @@
           "./node_modules/.bin/contentful-agents-kit skills install --allow-destructive"
         ],
         "executionMode": "branch",
-        "fileFilters": ["skills/**", ".agents/**", ".claude/**", ".cursor/**"]
+        "fileFilters": ["**/*"]
       }
     },
     {
@@ -27,7 +27,7 @@
           "./node_modules/.bin/contentful-agents-kit skills install --allow-destructive"
         ],
         "executionMode": "branch",
-        "fileFilters": ["skills/**", ".agents/**", ".claude/**", ".cursor/**"]
+        "fileFilters": ["**/*"]
       }
     }
   ]

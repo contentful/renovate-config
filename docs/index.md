@@ -37,17 +37,17 @@ Repositories that commit generated Agents Kit skills can add the optional preset
 }
 ```
 
-It applies only to npm-manager updates for `@contentful/agents-kit` or `@contentful/*skill*`. The generic rule requests installation with `skipInstalls: false` and runs `contentful-agents-kit skills install --allow-destructive` once per branch. For a root `pnpm-lock.yaml`, a later rule explicitly installs dependencies before running the CLI:
+It applies only to npm-manager updates for `@contentful/agents-kit` or `@contentful/*skill*`. The generic rule requests installation with `skipInstalls: false`, runs `contentful-agents-kit skills install --allow-destructive` once per branch, and commits every file the install changes. `skills install` writes only managed output: the `./skills` shared root, native agent folders such as `.agents/skills`, `.claude/skills`, and `.cursor/skills`, custom install targets, and `.agents-kit/custom-targets.json`. For a root `pnpm-lock.yaml`, a later rule explicitly installs dependencies before running the CLI:
 
 ```sh
 pnpm install --frozen-lockfile --ignore-scripts --ignore-pnpmfile
 ./node_modules/.bin/contentful-agents-kit skills install --allow-destructive
 ```
 
-Renovate's pnpm updater only updates the lockfile, so `skipInstalls: false` does not make the local CLI available. The explicit install also blocks lifecycle scripts and `.pnpmfile.cjs` execution. Because the pnpm rule replaces the entire `postUpgradeTasks` object, it explicitly repeats branch execution and the generated-file filters: `skills/**`, `.agents/**`, `.claude/**`, and `.cursor/**`. npm and Yarn retain the generic command list.
+Renovate's pnpm updater only updates the lockfile, so `skipInstalls: false` does not make the local CLI available. The explicit install also blocks lifecycle scripts and `.pnpmfile.cjs` execution. Because the pnpm rule replaces the entire `postUpgradeTasks` object, it explicitly repeats branch execution and the `**/*` file filter. npm and Yarn retain the generic command list.
 
 Mend settings must allow both commands with exact, anchored matches and forward private-registry credentials to the install separately from Renovate's lockfile update. See the [Mend-hosted pnpm requirements in the README](https://github.com/contentful/renovate-config#mend-hosted-pnpm-requirements) for the patterns and secret-backed environment configuration. The hosted pilot for [CAO-475](https://contentful.atlassian.net/browse/CAO-475) succeeded in [code-review PR #361](https://github.com/contentful/code-review/pull/361), updating the CLI and bundle together and committing regenerated skills.
 
-The flag lets unattended updates replace stale generated skills. It also permits overwriting edits in installed package skills and deleting skills in managed roots that are not declared in the Agents Kit configuration, even if Git tracks them. Keep custom skills registered as directory sources in `agentsKit.skills.uses.sources`; edit those sources rather than generated package copies. Use the default `./skills` shared root because the preset's file filters do not capture custom shared roots.
+The flag lets unattended updates replace stale generated skills. It also permits overwriting edits in installed package skills and deleting skills in managed roots that are not declared in the Agents Kit configuration, even if Git tracks them. Keep custom skills registered as directory sources in `agentsKit.skills.uses.sources`; edit those sources rather than generated package copies.
 
 The Mend-hosted Renovate command is centrally allowed. Consuming repositories must declare Agents Kit 0.27.0 or newer, which supports `--allow-destructive`, and its generated skill configuration. Skill packages with explicit `"."` roots require CLI 1.6.0 or newer. The preset uses `rangeStrategy: "bump"` for the CLI and all matching skill packages, including in-range updates; schedules, version constraints, and prerelease policies still apply. The later pnpm rule changes only the post-upgrade task and retains this strategy and grouping. Command or install failures surface as Renovate artifact errors.
