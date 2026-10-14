@@ -69,7 +69,9 @@ The pnpm configuration is a proposal for CAO-475; execution and credential forwa
 
 The flag lets unattended updates replace stale generated skills. It also permits overwriting edits in installed package skills and deleting skills in managed roots that are not declared in the Agents Kit configuration, even if Git tracks them. Keep custom skills registered as directory sources in `agentsKit.skills.uses.sources`; edit those sources rather than generated package copies. Use the default `./skills` shared root because the preset's file filters do not capture custom shared roots.
 
-The Mend-hosted Renovate command is centrally allowed. The consuming repository must declare Agents Kit 0.27.0 or newer, which supports `--allow-destructive`, and its generated skill configuration. Command or install failures surface as Renovate artifact errors.
+The Mend-hosted Renovate command is centrally allowed. The consuming repository must declare Agents Kit 0.27.0 or newer, which supports `--allow-destructive`, and its generated skill configuration. Skill packages that explicitly provide the package root (`"."`) require Agents Kit 1.6.0 or newer. Consumers of the default preset should use a targeted `rangeStrategy: "bump"` rule for `@contentful/agents-kit` to avoid retaining an incompatible locked CLI within an unchanged semver range. Command or install failures surface as Renovate artifact errors.
+
+The pnpm hosted pilot succeeded in [code-review PR #361](https://github.com/contentful/code-review/pull/361), updating Agents Kit to 1.7.3 and the repository bundle to 0.6.9 while committing regenerated skill content, including the CAO-475 branch-pattern correction. The earlier [PR #359](https://github.com/contentful/code-review/pull/359) proved dependency installation but failed during generation with CLI 1.0.0; keep CLI compatibility separate from install and authentication failures.
 
 ## Scheduling
 
