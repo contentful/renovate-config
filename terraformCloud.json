@@ -32,6 +32,12 @@
       "matchPackageNames": ["terraform-linters/**"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
+    },
+    {
+      "description": "Ignore AWS provider 6.69.0",
+      "matchManagers": ["terraform"],
+      "matchPackageNames": ["hashicorp/aws"],
+      "allowedVersions": "!/^6\\.69\\.0$/"
     }
   ]
 }
