@@ -19,7 +19,7 @@
     },
     {
       "description": "Bypass minimumReleaseAge for Node.js releases fixing CVE-2026-111497 (WIZ-ADV-2026-191)",
-      "matchPackageNames": ["node", "cimg/node"],
+      "matchPackageNames": ["node", "cimg/node", "@types/node"],
       "matchNewValue": "/^v?(22\\.23\\.4|24\\.22\\.1|26\\.12\\.1)(-.+)?$/",
       "minimumReleaseAge": null
     }
