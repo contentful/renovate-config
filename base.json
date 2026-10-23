@@ -19,6 +19,7 @@
   "minimumReleaseAge": "2 days",
   "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
+    "labels": ["dependencies", "renovate", "security"],
     "minimumReleaseAge": "2 days",
     "addLabels": ["security"]
   },

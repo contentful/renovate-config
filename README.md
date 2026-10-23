@@ -95,3 +95,11 @@ Use an IANA timezone such as `Europe/Berlin`, `America/Los_Angeles`, or `Asia/Si
 The base preset also uses Renovate's [`group:linters`](https://docs.renovatebot.com/presets-group/#grouplinters) and [`group:jsTest`](https://docs.renovatebot.com/presets-group/#groupjstest) presets. They replace the global ESLint/Prettier, JavaScript test-tooling, and Testing Library rules. `group:jsTest` intentionally covers a wider set of JavaScript test packages, including Jest, Vitest, Testing Library, Mocha, Chai, Sinon, and Nock. Contentful-specific ecosystems, and cross-manager groups such as Playwright's npm packages plus Docker image, remain in `groupCommonPackages.json`.
 
 The existing `groupESLintPrettier` preset remains available for consumers that explicitly extend it, but is no longer applied by `base.json`. Package presets such as [`packages:linters`](https://docs.renovatebot.com/presets-packages/#packageslinters) are matching helpers rather than groups by themselves; use the corresponding `group:*` preset when grouping is desired. [`group:vite`](https://docs.renovatebot.com/presets-group/#groupvite), [`group:react`](https://docs.renovatebot.com/presets-group/#groupreact), and [`group:pnpm`](https://docs.renovatebot.com/presets-group/#grouppnpm) remain opt-in because the repository scan did not show a sufficiently useful global grouping need for them.
+
+## Security updates and Nx migrations
+
+Security PRs use `dependencies`, `renovate`, and `security` labels, replacing the
+labels inherited from normal package groups. They do not receive `nx-migrate`,
+so the label-triggered Nx migration workflow does not run or convert them to
+draft. Ordinary platform updates retain their migration label. Normal required
+CI checks still apply to security fixes.
