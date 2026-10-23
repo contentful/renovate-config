@@ -5,6 +5,12 @@
     "local>contentful/renovate-config:groupNxPluginAndWorkflows"
   ],
   "rangeStrategy": "bump",
+  "vulnerabilityAlerts": {
+    "vulnerabilityFixStrategy": "highest",
+    "separateMajorMinor": true,
+    "separateMultipleMajor": true,
+    "branchTopic": "{{#if (and (equals depName 'nx') (equals newMajor 23))}}developer-platform-monorepo{{else}}{{{datasource}}}-{{{depNameSanitized}}}-{{{newMajor}}}-vulnerability{{/if}}"
+  },
   "packageRules": [
     {
       "description": "Hold Nx below v24 until @contentful/nx compatibility is ready",
