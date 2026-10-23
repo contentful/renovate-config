@@ -98,8 +98,8 @@ The existing `groupESLintPrettier` preset remains available for consumers that e
 
 ## Security updates and Nx migrations
 
-Security PRs use `dependencies`, `renovate`, and `security` labels, replacing the
-labels inherited from normal package groups. They do not receive `nx-migrate`,
-so the label-triggered Nx migration workflow does not run or convert them to
-draft. Ordinary platform updates retain their migration label. Normal required
-CI checks still apply to security fixes.
+`defaultNxMonorepo` omits `nx-migrate` from security PRs in the platform group,
+while retaining `dependencies:nx` and the inherited security label. Ordinary
+platform updates keep `nx-migrate`. Other presets and package-group labels are
+unchanged. The label-triggered Nx migration workflow therefore skips these
+security fixes, while normal required CI checks still apply.

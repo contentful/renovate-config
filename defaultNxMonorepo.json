@@ -7,6 +7,11 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
+      "description": "Skip Nx migrations on security PRs while preserving the platform group labels",
+      "matchJsonata": ["'nx-migrate' in labels"],
+      "labels": ["{{#unless isVulnerabilityAlert}}nx-migrate{{/unless}}", "dependencies:nx"]
+    },
+    {
       "description": "Hold Nx below v24 until @contentful/nx compatibility is ready",
       "matchDatasources": ["npm"],
       "matchPackageNames": ["nx", "@nx/*", "@nrwl/*"],
