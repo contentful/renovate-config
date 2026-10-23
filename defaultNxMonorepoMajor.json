@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Opt in to one supported Nx major while retaining the shared platform group and policy.",
+  "extends": ["local>contentful/renovate-config:defaultNxMonorepo"],
+  "packageRules": [
+    {
+      "description": "Keep Nx core and plugins on the explicitly selected major.",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["nx", "@nx/*", "@nrwl/*"],
+      "allowedVersions": "{{arg0}}.x"
+    }
+  ]
+}

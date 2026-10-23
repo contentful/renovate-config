@@ -14,6 +14,20 @@ Configuration presets for renovate in Contentful
 
 When changing a setting that should apply everywhere, edit `base.json` so it stays in one place; only put entrypoint-specific overrides in `default.json` / `defaultNxMonorepo.json`.
 
+## Nx major opt-in
+
+Use the major supported by the installed `@contentful/nx` release:
+
+```json
+{
+  "extends": ["local>contentful/renovate-config:defaultNxMonorepoMajor(24)"]
+}
+```
+
+The parameter is the Nx major: `(23)` allows `23.x`, `(24)` allows `24.x`, and `(25)` allows `25.x`. The preset inherits `defaultNxMonorepo` and replaces its Nx version constraint after the shared rules. Nx core/plugins retain the developer-platform group, migration labels, and Contentful plugin/workflow coupling. Consumers still extending `defaultNxMonorepo` retain its existing `<24.0.0` constraint.
+
+Only opt in when the platform release supports that major. This preset does not implement Nx compatibility, resolve exact peer-version conflicts, or change inherited security-update handling. Future major-support releases should migrate consumers to the matching parameter; no copied preset is needed.
+
 ## Agents Kit skill synchronization
 
 Repositories that commit generated Agents Kit skills can opt in with:
