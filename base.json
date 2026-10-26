@@ -77,6 +77,14 @@
       "description": "No minimum release age for trusted Contentful packages (matched by package registry URL)",
       "matchRegistryUrls": ["https://rubygems.pkg.github.com/contentful"],
       "minimumReleaseAge": null
+    },
+    {
+      "description": "Never hold Content Storage's shared data libraries behind PR limits or the off-hours schedule, so consumers don't drift behind schema and data fixes. Automerge stays with each repo's settings.",
+      "matchPackageNames": ["@contentful/cf-entities", "@contentful/models"],
+      "prConcurrentLimit": 0,
+      "prHourlyLimit": 0,
+      "prPriority": 10,
+      "schedule": ["at any time"]
     }
   ]
 }
