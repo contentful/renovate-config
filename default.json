@@ -10,6 +10,11 @@
       "matchUpdateTypes": ["major", "minor"],
       "matchPackageNames": ["postgres", "cimg/postgres"],
       "automerge": false
+    },
+    {
+      "description": "`:preserveSemverRanges` proposes nothing for a release inside the declared range, so consumers' lockfiles stay on old versions of Content Storage's shared data libraries. Update the lockfile for those releases; releases outside the range still replace it.",
+      "matchPackageNames": ["@contentful/cf-entities", "@contentful/models"],
+      "rangeStrategy": "update-lockfile"
     }
   ]
 }
