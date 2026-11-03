@@ -13,7 +13,7 @@
     "local>contentful/renovate-config:terraformCloud",
     "local>contentful/renovate-config:groupCommonPackages"
   ],
-  "labels": ["dependencies", "renovate"],
+  "addLabels": ["dependencies", "renovate", "wizexclude"],
   "prCreation": "not-pending",
   "internalChecksFilter": "strict",
   "minimumReleaseAge": "2 days",
